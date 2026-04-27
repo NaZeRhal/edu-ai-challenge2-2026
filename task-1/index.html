@@ -1184,6 +1184,18 @@
     .userRowContainer_2943a085.hidden {
       display: none;
     }
+
+    /* =====================================================
+       LEADERBOARD CARD WRAPPER
+       ===================================================== */
+    .leaderboard-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
   </style>
 </head>
 <body>
@@ -1200,13 +1212,14 @@
     <h1 class="page-title">Company Leader Board 2025</h1>
 
     <!-- LEADERBOARD SECTION -->
+    <div class="leaderboard-card">
     <section class="leaderboard_2943a085">
 
       <!-- Header -->
       <header class="header_2943a085">
         <div class="headerContent_2943a085">
-          <h2>Learning Champions</h2>
-          <p>Recognising employees who actively contribute to knowledge sharing and continuous learning</p>
+          <h2>Leaderboard</h2>
+          <p>Top performers based on contributions and activity</p>
         </div>
       </header>
 
@@ -1275,6 +1288,7 @@
       <div class="list_2943a085" id="list" data-note="SAMPLED: first 3 of N rows shown — pattern repeats"></div>
 
     </section>
+    </div>
   </div>
 
   <!-- FEEDBACK BUTTON (outside page wrapper, fixed) -->
@@ -1668,10 +1682,10 @@
        edu  → Mentoring icon
        ========================================================== */
     const STAT_MAP = {
-      lab: { icon: 'Education',     tooltip: 'Education sessions' },
-      reg: { icon: 'Presentation',  tooltip: 'Public Speaking events' },
-      uni: { icon: 'University',    tooltip: 'University Partnerships' },
-      edu: { icon: 'Mentoring',     tooltip: 'Mentoring activities' }
+      lab: { icon: 'Education',    category: 'Mentoring',             tooltip: 'Mentoring activities' },
+      reg: { icon: 'Presentation', category: 'Public Speaking',       tooltip: 'Public Speaking events' },
+      uni: { icon: 'University',   category: 'University Partnership', tooltip: 'University Partnerships' },
+      edu: { icon: 'Mentoring',    category: 'Education',             tooltip: 'Education sessions' }
     };
 
     /* Activity category → badge class */
@@ -1868,15 +1882,19 @@
       list.innerHTML = entries.map(entry => {
         /* Category stats — only show categories with count > 0 */
         const statsHTML = ['lab', 'reg', 'uni', 'edu']
-          .filter(key => entry.categories[key] > 0)
           .map(key => {
-            const { icon, tooltip } = STAT_MAP[key];
+            const { icon, category, tooltip } = STAT_MAP[key];
+            const count = entry.activities.filter(a => a.category === category).length;
+            return { key, icon, tooltip, count };
+          })
+          .filter(({ count }) => count > 0)
+          .map(({ icon, tooltip, count }) => {
             const tid = tooltipCounter++;
             return `
               <div class="ms-TooltipHost root-276" role="none">
                 <div class="categoryStat_2943a085">
                   <i class="categoryStatIcon_2943a085 root-275" data-icon-name="${icon}" aria-hidden="true">${SVG[icon]}</i>
-                  <span class="categoryStatCount_2943a085">${entry.categories[key]}</span>
+                  <span class="categoryStatCount_2943a085">${count}</span>
                 </div>
                 <div hidden id="tooltip${tid}">${tooltip}</div>
               </div>`;

@@ -59,9 +59,9 @@
 
     /* ─── Page wrapper ─────────────────────────────────────────────── */
     .page-wrapper {
-      max-width: 920px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 16px;
     }
 
     /* ─── Breadcrumb ───────────────────────────────────────────────── */
@@ -537,7 +537,7 @@
     .category-stats {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
       height: 40px;
     }
     .category-stat {
@@ -1109,7 +1109,10 @@ function chevronSvg(size) {
   return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block"><polyline points="6 9 12 15 18 9"/></svg>`;
 }
 
-const MONITOR_SVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>`;
+const MONITOR_SVG    = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>`;
+const GRADUATION_SVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`;
+const UNIVERSITY_SVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>`;
+const PEOPLE_SVG     = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`;
 
 /* ── Filter State ───────────────────────────────────────────────────── */
 const state = { year: 'all', quarter: 'all', category: 'all', search: '' };
@@ -1196,12 +1199,24 @@ function renderPodium(top3) {
 }
 
 /* ── Render List Row ────────────────────────────────────────────────── */
-function activityCountStatHtml(count) {
-  return `
-    <div class="category-stat" title="Total Activities: ${count}">
-      <span class="category-stat-icon">${MONITOR_SVG}</span>
-      <span class="category-stat-count">${count}</span>
-    </div>`;
+const CATEGORY_ICON_MAP = [
+  { key: 'Public Speaking',        svg: MONITOR_SVG,    title: 'Public Speaking' },
+  { key: 'Education',              svg: GRADUATION_SVG, title: 'Education' },
+  { key: 'University Partnership', svg: UNIVERSITY_SVG, title: 'University Partnership' },
+  { key: 'Mentoring',              svg: PEOPLE_SVG,     title: 'Mentoring' },
+];
+
+function categoryIconsHtml(entry) {
+  const counts = {};
+  entry.activities.forEach(a => { counts[a.category] = (counts[a.category] || 0) + 1; });
+  return CATEGORY_ICON_MAP
+    .filter(item => counts[item.key] > 0)
+    .map(item => `
+    <div class="category-stat" title="${item.title}: ${counts[item.key]}">
+      <span class="category-stat-icon">${item.svg}</span>
+      <span class="category-stat-count">${counts[item.key]}</span>
+    </div>`)
+    .join('');
 }
 
 function expandedPanelHtml(activities) {
@@ -1230,7 +1245,7 @@ function expandedPanelHtml(activities) {
 }
 
 function renderListRow(entry, displayRank) {
-  const catStats = activityCountStatHtml(entry.activities.length);
+  const catStats = categoryIconsHtml(entry);
   const expandedPanel = expandedPanelHtml(entry.activities);
   return `
     <div class="user-row-container" data-id="${entry.id}">
@@ -1281,10 +1296,9 @@ function renderAll() {
       listEl.innerHTML = filtered.map((e, i) => renderListRow(e, i + 1)).join('');
     }
   } else {
-    /* Show top-3 in podium, rest in list */
+    /* Show top-3 in podium, ALL 25 entries in list */
     renderPodium(LEADERBOARD_DATA.slice(0, 3));
-    const listEntries = LEADERBOARD_DATA.slice(3);
-    listEl.innerHTML = listEntries.map(e => renderListRow(e, e.rank)).join('');
+    listEl.innerHTML = LEADERBOARD_DATA.map(e => renderListRow(e, e.rank)).join('');
   }
 
   /* Re-attach expand listeners */

@@ -176,7 +176,7 @@
     }
 
     body {
-      background: #f8fafc;
+      background: #e5e7eb;
       font-family: var(--font-family);
       margin: 0;
       padding: 0;
@@ -206,6 +206,7 @@
       justify-content: space-between;
       margin: 0 auto 32px;
       max-width: 1200px;
+      padding: 32px 24px 0 24px;
     }
 
     .header_2943a085 .headerContent_2943a085 {
@@ -954,7 +955,7 @@
     .ms-Dropdown {
       align-items: center;
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid rgb(55,55,55);
       border-radius: 4px;
       cursor: pointer;
       display: flex;
@@ -1114,13 +1115,13 @@
     .breadcrumb {
       color: #64748b;
       font-family: var(--font-family);
-      font-size: 13px;
+      font-size: 14px;
       margin-bottom: 12px;
     }
 
     .breadcrumb a {
-      color: #64748b;
-      text-decoration: none;
+      color: rgb(0,0,0);
+      text-decoration: underline;
     }
 
     .breadcrumb a:hover {
@@ -1132,11 +1133,15 @@
       margin: 0 6px;
     }
 
+    .breadcrumb span:last-child {
+      text-decoration: none;
+    }
+
     .page-title {
       color: #0f172a;
       font-family: var(--font-family);
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 36px;
+      font-weight: 800;
       margin: 0 0 20px;
     }
 
@@ -1197,9 +1202,11 @@
       background: #fff;
       border-radius: 12px;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
       overflow: hidden;
       margin-bottom: 24px;
+      margin-top: 24px;
+      padding: 32px 0 0 0;
     }
   </style>
 </head>
@@ -1209,9 +1216,9 @@
   <div class="page-wrapper">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="#">Home</a>
-      <span class="sep" aria-hidden="true">›</span>
+      <span class="sep" aria-hidden="true"> / </span>
       <a href="#">EDU</a>
-      <span class="sep" aria-hidden="true">›</span>
+      <span class="sep" aria-hidden="true"> / </span>
       <span>Company Leader Board 2025</span>
     </nav>
     <h1 class="page-title">Company Leader Board 2025</h1>

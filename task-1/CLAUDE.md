@@ -35,3 +35,36 @@ After each phase append a short entry to task-1/report.md:
 - Tools and techniques used
 - Decisions made
 - Problems encountered and fixes applied
+
+## Resolved Ambiguities (from new-spec.md §5)
+
+### Filter dropdowns
+- Dropdown0 (120px): "All Years" — filters by entry.year
+- Dropdown1 (120px): "All Quarters" — filters by entry.quarter  
+- Dropdown2 (150px): "All Categories" — filters by activity category
+
+### Avatar sizing (not in source CSS — must be explicit)
+- podiumAvatar rank1: 112×112px, font-size 32px
+- podiumAvatar rank2/3: 80×80px, font-size 24px
+- podiumRankBadge rank1: 40×40px, font-size 18px
+- podiumRankBadge rank2/3: 32×32px, font-size 14px
+
+### Icon → category badge mapping
+- Presentation icon → categoryDefault_2943a085 (grey)
+- Education icon → categoryTraining_2943a085 (blue)
+- University icon → categoryCommunity_2943a085 (green)
+- Mentoring icon → categoryContribution_2943a085 (purple)
+
+### Details panel position
+- .details_2943a085 is sibling of .row_2943a085
+  inside .userRowContainer_2943a085
+- Columns: ACTIVITY | CATEGORY | DATE | POINTS
+
+### Other decisions
+- Theme toggle: OMIT
+- Chevron on expand: rotate 180deg via JS
+- Fluent helper classes: replace with custom CSS equivalents
+- custom-styles.css: drop entirely
+- Icon strategy: inline SVGs throughout
+- Podium shows when ≥3 filtered results, hides otherwise
+- Loading state: skip (data is synchronous)

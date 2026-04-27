@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Leader Board 2025</title>
+  <style>
+    /* =====================================================
+       CSS VARIABLES — new-spec.md §2
+       ===================================================== */
+    :root {
+      /* Surfaces */
+      --color-bg-page:                #f8fafc;
+      --color-bg-surface:             #fff;
+      --color-bg-surface-muted:       #f1f5f9;
+      --color-border:                 #e2e8f0;
+
+      /* Text */
+      --color-text-primary:           #0f172a;
+      --color-text-strong:            #1e293b;
+      --color-text-secondary:         #475569;
+      --color-text-muted:             #64748b;
+      --color-text-faint:             #94a3b8;
+
+      /* Accent */
+      --color-accent:                 #0ea5e9;
+      --color-accent-deep:            #0284c7;
+      --color-accent-soft-bg:         #e0f2fe;
+
+      /* Rank 1 — gold */
+      --color-rank1-avatar-bg:        #86efac;
+      --color-rank1-avatar-border:    #fbbf24;
+      --color-rank1-avatar-text:      #166534;
+      --color-rank1-badge-bg:         #eab308;
+      --color-rank1-score-bg:         #fef9c3;
+      --color-rank1-score-border:     #fde047;
+      --color-rank1-score-text:       #ca8a04;
+      --color-rank1-block-from:       #fef3c7;
+      --color-rank1-block-to:         #fde68a;
+      --color-rank1-block-top:        #fde047;
+      --color-rank1-number-text:      rgba(234, 179, 8, .2);
+
+      /* Rank 2 — silver */
+      --color-rank2-avatar-bg:        #cbd5e1;
+      --color-rank2-avatar-text:      #1e293b;
+      --color-rank2-badge-bg:         #94a3b8;
+
+      /* Rank 3 — bronze/teal */
+      --color-rank3-avatar-bg:        #5eead4;
+      --color-rank3-avatar-text:      #134e4a;
+      --color-rank3-badge-bg:         #92400e;
+
+      /* Default podium block */
+      --color-block-from:             #e2e8f0;
+      --color-block-to:               #cbd5e1;
+      --color-block-top:              #cbd5e1;
+      --color-rank-number-text:       rgba(148, 163, 184, .2);
+
+      /* Row avatar default */
+      --color-row-avatar-bg:          #fbbf24;
+
+      /* Category badges */
+      --color-cat-training-bg:        #dbeafe;
+      --color-cat-training-text:      #1e40af;
+      --color-cat-contribution-bg:    #f3e8ff;
+      --color-cat-contribution-text:  #6b21a8;
+      --color-cat-community-bg:       #dcfce7;
+      --color-cat-community-text:     #166534;
+      --color-cat-default-bg:         #e2e8f0;
+      --color-cat-default-text:       #475569;
+
+      /* Shadows */
+      --shadow-rgba-5:                rgba(0, 0, 0, .05);
+      --shadow-rgba-6:                rgba(0, 0, 0, .06);
+      --shadow-rgba-10:               rgba(0, 0, 0, .1);
+      --shadow-rgba-15:               rgba(0, 0, 0, .15);
+
+      /* Spacing */
+      --space-1: 4px;
+      --space-2: 6px;
+      --space-3: 8px;
+      --space-4: 12px;
+      --space-5: 16px;
+      --space-6: 20px;
+      --space-7: 24px;
+      --space-8: 32px;
+      --space-9: 64px;
+
+      --pad-row:                  20px 24px;
+      --pad-filter-bar:           20px 24px;
+      --pad-podium:               32px 8px;
+      --pad-podium-score-default: 6px 16px;
+      --pad-podium-score-rank1:   8px 20px;
+      --pad-cat-badge:            4px 12px;
+      --pad-th:                   12px 8px;
+      --pad-td:                   16px 8px;
+
+      /* Container widths */
+      --width-content-max:      1200px;
+      --width-podium-max:       900px;
+      --width-podium-col-max:   280px;
+      --width-search-min:       250px;
+      --width-rank-min:         32px;
+      --size-row-avatar:        56px;
+
+      /* Podium block heights */
+      --height-block-rank1:        160px;
+      --height-block-rank2:        128px;
+      --height-block-rank3:        96px;
+      --height-block-rank1-mobile: 140px;
+      --height-block-rank2-mobile: 96px;
+      --height-block-rank3-mobile: 64px;
+
+      /* Offsets */
+      --offset-rank1-margin-top:   -32px;
+      --offset-rank3-number-top:   -16px;
+      --offset-badge-bottom:       -8px;
+      --offset-badge-right:        -4px;
+      --podium-blocktop-height:    2px;
+
+      /* Typography */
+      --font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Oxygen,
+                     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+                     sans-serif;
+
+      --fs-10:  10px;
+      --fs-12:  12px;
+      --fs-14:  14px;
+      --fs-16:  16px;
+      --fs-18:  18px;
+      --fs-20:  20px;
+      --fs-24:  24px;
+      --fs-28:  28px;
+      --fs-30:  30px;
+      --fs-32:  32px;
+      --fs-96:  96px;
+      --fs-112: 112px;
+
+      --fw-medium:   500;
+      --fw-semibold: 600;
+      --fw-bold:     700;
+      --fw-black:    900;
+
+      --tracking-wide: .05em;
+
+      /* Border radius */
+      --radius-pill:        20px;
+      --radius-card:        12px;
+      --radius-block-top:   12px 12px 0 0;
+      --radius-circle:      50%;
+
+      /* Box shadows */
+      --shadow-xs:        0 1px 2px rgba(0, 0, 0, .05);
+      --shadow-sm:        0 1px 3px rgba(0, 0, 0, .1);
+      --shadow-md-soft:   0 4px 12px rgba(0, 0, 0, .05);
+      --shadow-md:        0 4px 12px rgba(0, 0, 0, .1);
+      --shadow-md-strong: 0 4px 12px rgba(0, 0, 0, .15);
+      --shadow-inset:     inset 0 2px 4px rgba(0, 0, 0, .06);
+
+      /* Transitions */
+      --transition-theme:    background-color .3s, color .3s;
+      --transition-quick:    all .2s;
+      --transition-bg:       background .2s;
+      --transition-bg-color: background-color .2s;
+
+      /* Gradients */
+      --gradient-block-default: linear-gradient(180deg, #e2e8f0, #cbd5e1);
+      --gradient-block-rank1:   linear-gradient(180deg, #fef3c7, #fde68a);
+    }
+
+    /* =====================================================
+       BASE RESET
+       ===================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f8fafc;
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =====================================================
+       COMPONENT STYLES — new-spec.md §1.1 Container
+       ===================================================== */
+    .leaderboard_2943a085 {
+      background: #f8fafc;
+      color: #0f172a;
+      font-family: Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      min-height: 100vh;
+      padding: 24px;
+      transition: background-color .3s, color .3s;
+    }
+
+    .leaderboard_2943a085.loading_2943a085 {
+      opacity: .6;
+      pointer-events: none;
+    }
+
+    /* §1.2 Header */
+    .header_2943a085 {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto 32px;
+      max-width: 1200px;
+    }
+
+    .header_2943a085 .headerContent_2943a085 {
+      flex: 1;
+    }
+
+    .header_2943a085 .headerContent_2943a085 h2 {
+      color: #0f172a;
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+
+    .header_2943a085 .headerContent_2943a085 p {
+      color: #64748b;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .header_2943a085 .themeToggle_2943a085 {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 50%;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      color: #64748b;
+      cursor: pointer;
+      padding: 8px;
+      transition: all .2s;
+    }
+
+    .header_2943a085 .themeToggle_2943a085:hover {
+      border-color: #0ea5e9;
+      color: #0ea5e9;
+    }
+
+    .header_2943a085 .themeToggle_2943a085 i {
+      font-size: 20px;
+    }
+
+    /* §1.3 Filter bar */
+    .filterBar_2943a085 {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      margin: 0 auto 24px;
+      max-width: 1200px;
+      padding: 20px 24px;
+      transition: all .2s;
+    }
+
+    .filterBar_2943a085:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+    }
+
+    .filterBar_2943a085 .filters_2943a085 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .filterBar_2943a085 .search_2943a085 {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    /* §1.4 Podium shell */
+    .podium_2943a085 {
+      align-items: flex-end;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin: 0 auto 64px;
+      max-width: 900px;
+      padding: 32px 8px;
+    }
+
+    .podiumColumn_2943a085 {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      max-width: 280px;
+      position: relative;
+      width: 100%;
+    }
+
+    /* §1.5 Podium rank variants */
+    .podiumColumn_2943a085.podiumRank1_2943a085 {
+      margin-top: -32px;
+      order: 2;
+    }
+
+    .podiumRank1_2943a085 .podiumAvatar_2943a085 {
+      background-color: #86efac;
+      border: 4px solid #fbbf24;
+      color: #166534;
+    }
+
+    .podiumRank1_2943a085 .podiumAvatar_2943a085 span {
+      font-size: 32px;
+    }
+
+    .podiumRank1_2943a085 .podiumRankBadge_2943a085 {
+      background: #eab308;
+      font-size: 18px;
+    }
+
+    .podiumRank1_2943a085 .podiumName_2943a085 {
+      font-size: 24px;
+    }
+
+    .podiumRank1_2943a085 .podiumScore_2943a085 {
+      background: #fef9c3;
+      border-color: #fde047;
+      color: #ca8a04;
+      font-size: 20px;
+      padding: 8px 20px;
+    }
+
+    .podiumRank1_2943a085 .podiumScore_2943a085 i {
+      font-size: 18px;
+    }
+
+    .podiumRank1_2943a085 .podiumBlock_2943a085 {
+      background: linear-gradient(180deg, #fef3c7, #fde68a);
+      border-top-color: #fde047;
+      height: 160px;
+    }
+
+    .podiumRank1_2943a085 .podiumBlockTop_2943a085 {
+      background: #fde047;
+    }
+
+    .podiumRank1_2943a085 .podiumRankNumber_2943a085 {
+      color: rgba(234, 179, 8, .2);
+      font-size: 112px;
+    }
+
+    .podiumColumn_2943a085.podiumRank2_2943a085 {
+      order: 1;
+    }
+
+    .podiumRank2_2943a085 .podiumAvatar_2943a085 {
+      background-color: #cbd5e1;
+      border: 4px solid #fff;
+      color: #1e293b;
+    }
+
+    .podiumRank2_2943a085 .podiumRankBadge_2943a085 {
+      background: #94a3b8;
+      font-size: 14px;
+    }
+
+    .podiumRank2_2943a085 .podiumScore_2943a085,
+    .podiumRank3_2943a085 .podiumScore_2943a085 {
+      color: #0ea5e9;
+    }
+
+    .podiumRank2_2943a085 .podiumBlock_2943a085 {
+      height: 128px;
+    }
+
+    .podiumRank2_2943a085 .podiumBlockTop_2943a085,
+    .podiumRank3_2943a085 .podiumBlockTop_2943a085 {
+      background: #cbd5e1;
+    }
+
+    .podiumColumn_2943a085.podiumRank3_2943a085 {
+      order: 3;
+    }
+
+    .podiumRank3_2943a085 .podiumAvatar_2943a085 {
+      background-color: #5eead4;
+      border: 4px solid #fff;
+      color: #134e4a;
+    }
+
+    .podiumRank3_2943a085 .podiumRankBadge_2943a085 {
+      background: #92400e;
+      font-size: 14px;
+    }
+
+    .podiumRank3_2943a085 .podiumBlock_2943a085 {
+      height: 96px;
+    }
+
+    .podiumRank3_2943a085 .podiumRankNumber_2943a085 {
+      top: -16px;
+    }
+
+    /* §1.6 Podium internals */
+    .podiumUser_2943a085 {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .podiumAvatarContainer_2943a085 {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .podiumAvatar_2943a085 {
+      align-items: center;
+      background-position: 50%;
+      background-size: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+      color: #fff;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+    }
+
+    .podiumAvatar_2943a085 span {
+      font-size: 24px;
+    }
+
+    /* Missing sizes — resolved ambiguities */
+    .podiumRank1_2943a085 .podiumAvatar_2943a085 {
+      width: 112px;
+      height: 112px;
+    }
+
+    .podiumRank2_2943a085 .podiumAvatar_2943a085,
+    .podiumRank3_2943a085 .podiumAvatar_2943a085 {
+      width: 80px;
+      height: 80px;
+    }
+
+    .podiumRank1_2943a085 .podiumRankBadge_2943a085 {
+      width: 40px;
+      height: 40px;
+    }
+
+    .podiumRank2_2943a085 .podiumRankBadge_2943a085,
+    .podiumRank3_2943a085 .podiumRankBadge_2943a085 {
+      width: 32px;
+      height: 32px;
+    }
+
+    .podiumRankBadge_2943a085 {
+      align-items: center;
+      border: 4px solid #fff;
+      border-radius: 50%;
+      bottom: -8px;
+      color: #fff;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      position: absolute;
+      right: -4px;
+    }
+
+    .podiumName_2943a085 {
+      color: #0f172a;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 4px;
+      text-align: center;
+    }
+
+    .podiumRole_2943a085 {
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0 0 8px;
+    }
+
+    .podiumScore_2943a085 {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+      display: flex;
+      font-size: 18px;
+      font-weight: 700;
+      gap: 6px;
+      padding: 6px 16px;
+    }
+
+    .podiumScore_2943a085 i {
+      font-size: 16px;
+    }
+
+    .podiumBlock_2943a085 {
+      align-items: flex-start;
+      background: linear-gradient(180deg, #e2e8f0, #cbd5e1);
+      border-radius: 12px 12px 0 0;
+      border-top: 2px solid #cbd5e1;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, .06);
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 16px;
+      position: relative;
+      width: 100%;
+    }
+
+    .podiumBlockTop_2943a085 {
+      height: 2px;
+      inset: 0 0 auto 0;
+      position: absolute;
+    }
+
+    .podiumRankNumber_2943a085 {
+      color: rgba(148, 163, 184, .2);
+      font-size: 96px;
+      font-weight: 900;
+      position: relative;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* §1.7 List row container */
+    .list_2943a085 {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .userRowContainer_2943a085 {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+      overflow: hidden;
+      transition: all .2s;
+    }
+
+    .userRowContainer_2943a085:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+    }
+
+    .userRowContainer_2943a085.expanded_2943a085 {
+      border-color: #0ea5e9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+    }
+
+    .row_2943a085 {
+      padding: 20px 24px;
+    }
+
+    .rowMain_2943a085 {
+      align-items: center;
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+    }
+
+    .rowLeft_2943a085 {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      gap: 24px;
+    }
+
+    .rank_2943a085 {
+      color: #94a3b8;
+      font-size: 24px;
+      font-weight: 700;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .avatar_2943a085 {
+      align-items: center;
+      background-color: #fbbf24;
+      background-position: 50%;
+      background-size: cover;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      flex-shrink: 0;
+      font-size: 20px;
+      font-weight: 700;
+      height: 56px;
+      justify-content: center;
+      width: 56px;
+    }
+
+    .info_2943a085 {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .name_2943a085 {
+      color: #0f172a;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .role_2943a085 {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .rowRight_2943a085 {
+      align-items: center;
+      display: flex;
+      gap: 24px;
+    }
+
+    /* §1.8 Stats and totals */
+    .categoryStats_2943a085 {
+      align-items: center;
+      display: flex;
+      gap: 24px;
+    }
+
+    .categoryStat_2943a085 {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .categoryStatIcon_2943a085 {
+      color: #0ea5e9;
+      font-size: 20px;
+    }
+
+    .categoryStatCount_2943a085 {
+      color: #475569;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .totalSection_2943a085 {
+      align-items: flex-end;
+      border-left: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-left: 24px;
+    }
+
+    .totalLabel_2943a085 {
+      color: #94a3b8;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .05em;
+    }
+
+    .score_2943a085 {
+      align-items: center;
+      color: #0ea5e9;
+      display: flex;
+      font-size: 24px;
+      font-weight: 700;
+      gap: 6px;
+    }
+
+    .score_2943a085 i {
+      font-size: 28px;
+    }
+
+    /* §1.9 Expand button */
+    .expandButton_2943a085 {
+      align-items: center;
+      background: #f1f5f9;
+      border: none;
+      border-radius: 50%;
+      color: #0ea5e9;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      padding: 8px;
+      transition: background .2s;
+    }
+
+    .expandButton_2943a085:hover {
+      background: #e2e8f0;
+    }
+
+    .expandButton_2943a085 i {
+      font-size: 20px;
+    }
+
+    .userRowContainer_2943a085.expanded_2943a085 .expandButton_2943a085 {
+      background: #e0f2fe;
+    }
+
+    .userRowContainer_2943a085.expanded_2943a085 .expandButton_2943a085 i {
+      transform: rotate(180deg);
+    }
+
+    .expandButton_2943a085 i {
+      transition: transform .2s;
+    }
+
+    /* §1.10 Details panel */
+    .details_2943a085 {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: none;
+      padding: 24px;
+    }
+
+    .userRowContainer_2943a085.expanded_2943a085 .details_2943a085 {
+      display: block;
+    }
+
+    .detailsTitle_2943a085 {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      margin: 0 0 16px;
+      text-transform: uppercase;
+    }
+
+    .tableWrapper_2943a085 {
+      overflow-x: auto;
+    }
+
+    .activityTable_2943a085 {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .activityTable_2943a085 thead tr {
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .activityTable_2943a085 thead th {
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      padding: 12px 8px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .activityTable_2943a085 thead th:last-child {
+      text-align: right;
+    }
+
+    .activityTable_2943a085 tbody tr {
+      transition: background-color .2s;
+    }
+
+    .activityTable_2943a085 tbody tr:hover {
+      background: #f1f5f9;
+    }
+
+    .activityTable_2943a085 tbody td {
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+      padding: 16px 8px;
+    }
+
+    .activityTable_2943a085 tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .activityName_2943a085 {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .activityDate_2943a085 {
+      color: #64748b;
+    }
+
+    .activityPoints_2943a085 {
+      color: #0ea5e9;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .categoryBadge_2943a085 {
+      align-items: center;
+      border-radius: 12px;
+      display: inline-flex;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+    }
+
+    .categoryBadge_2943a085.categoryTraining_2943a085 {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .categoryBadge_2943a085.categoryContribution_2943a085 {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    .categoryBadge_2943a085.categoryCommunity_2943a085 {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .categoryBadge_2943a085.categoryDefault_2943a085 {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    .categoryIcon_2943a085 {
+      align-items: center;
+      color: #0284c7;
+      display: inline-flex;
+      font-size: 16px;
+      justify-content: center;
+    }
+
+    .categoryIcon_2943a085:hover {
+      color: #0ea5e9;
+    }
+
+    .diamondIcon_2943a085 {
+      color: #0ea5e9;
+      font-size: 24px;
+    }
+
+    /* §1.11 Responsive overrides */
+    @media (max-width: 768px) {
+      .podium_2943a085 {
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .podiumColumn_2943a085.podiumRank1_2943a085 {
+        margin-top: 0;
+        order: 1;
+      }
+
+      .podiumColumn_2943a085.podiumRank2_2943a085 {
+        order: 2;
+      }
+
+      .podiumRank1_2943a085 .podiumBlock_2943a085 {
+        height: 140px;
+      }
+
+      .podiumRank2_2943a085 .podiumBlock_2943a085 {
+        height: 96px;
+      }
+
+      .podiumRank3_2943a085 .podiumBlock_2943a085 {
+        height: 64px;
+      }
+
+      .row_2943a085 {
+        padding: 16px;
+      }
+
+      .rowMain_2943a085 {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .rowLeft_2943a085 {
+        gap: 16px;
+        width: 100%;
+      }
+
+      .info_2943a085 {
+        flex: 1;
+      }
+
+      .rowRight_2943a085 {
+        border-top: 1px solid #e2e8f0;
+        justify-content: space-between;
+        padding-top: 12px;
+        width: 100%;
+      }
+
+      .categoryStats_2943a085 {
+        gap: 16px;
+      }
+
+      .totalSection_2943a085 {
+        display: none;
+      }
+
+      .details_2943a085 {
+        padding: 16px;
+      }
+
+      .leaderboard_2943a085 {
+        padding: 16px;
+      }
+
+      .header_2943a085 {
+        margin-bottom: 24px;
+      }
+
+      .header_2943a085 .headerContent_2943a085 h2 {
+        font-size: 24px;
+      }
+
+      .filterBar_2943a085 {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .filterBar_2943a085 .filters_2943a085 {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .filterBar_2943a085 .search_2943a085 {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .podium_2943a085 {
+        margin-bottom: 32px;
+      }
+    }
+
+    /* =====================================================
+       FLUENT UI COMPONENT STYLES
+       ===================================================== */
+
+    /* Dropdown container */
+    .ms-Dropdown-container {
+      position: relative;
+    }
+
+    .ms-Dropdown {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      font-family: var(--font-family);
+      font-size: 14px;
+      height: 32px;
+      justify-content: space-between;
+      outline: none;
+      padding: 0 8px;
+      position: relative;
+      user-select: none;
+    }
+
+    .ms-Dropdown:hover {
+      border-color: #0ea5e9;
+    }
+
+    .ms-Dropdown[aria-expanded="true"] {
+      border-color: #0ea5e9;
+    }
+
+    .ms-Dropdown-title {
+      color: #0f172a;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ms-Dropdown-caretDownWrapper {
+      align-items: center;
+      color: #64748b;
+      display: flex;
+      flex-shrink: 0;
+      margin-left: 6px;
+      transition: transform .2s;
+    }
+
+    .ms-Dropdown[aria-expanded="true"] .ms-Dropdown-caretDownWrapper {
+      transform: rotate(180deg);
+    }
+
+    .ms-Dropdown-caretDown {
+      align-items: center;
+      display: flex;
+    }
+
+    /* Dropdown listbox */
+    .ms-Dropdown-items-wrapper {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+      display: none;
+      left: 0;
+      max-height: 200px;
+      min-width: 100%;
+      overflow-y: auto;
+      position: absolute;
+      top: calc(100% + 4px);
+      z-index: 200;
+    }
+
+    .ms-Dropdown-container.open .ms-Dropdown-items-wrapper {
+      display: block;
+    }
+
+    .ms-Dropdown-item {
+      color: #0f172a;
+      cursor: pointer;
+      font-family: var(--font-family);
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+
+    .ms-Dropdown-item:hover {
+      background: #f1f5f9;
+    }
+
+    .ms-Dropdown-item.selected {
+      background: #e0f2fe;
+      color: #0ea5e9;
+      font-weight: 600;
+    }
+
+    /* Dropdown widths */
+    #dropdown-container-0 .ms-Dropdown,
+    #dropdown-container-1 .ms-Dropdown {
+      width: 120px;
+    }
+
+    #dropdown-container-2 .ms-Dropdown {
+      width: 150px;
+    }
+
+    /* SearchBox */
+    .ms-SearchBox {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      display: flex;
+      height: 32px;
+      padding: 0 8px;
+      width: 100%;
+    }
+
+    .ms-SearchBox:focus-within {
+      border-color: #0ea5e9;
+    }
+
+    .ms-SearchBox-iconContainer {
+      align-items: center;
+      color: #64748b;
+      display: flex;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+
+    .ms-SearchBox-icon {
+      align-items: center;
+      display: flex;
+    }
+
+    .ms-SearchBox-field {
+      background: transparent;
+      border: none;
+      color: #0f172a;
+      flex: 1;
+      font-family: var(--font-family);
+      font-size: 14px;
+      outline: none;
+      width: 100%;
+    }
+
+    .ms-SearchBox-field::placeholder {
+      color: #94a3b8;
+    }
+
+    /* Fluent UI helper classes */
+    .root-275,
+    .root-276 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* =====================================================
+       PAGE WRAPPER
+       ===================================================== */
+    .page-wrapper {
+      margin: 0 auto;
+      max-width: 1400px;
+      padding: 24px;
+    }
+
+    .breadcrumb {
+      color: #64748b;
+      font-family: var(--font-family);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .breadcrumb a {
+      color: #64748b;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      color: #0ea5e9;
+      text-decoration: underline;
+    }
+
+    .breadcrumb .sep {
+      margin: 0 6px;
+    }
+
+    .page-title {
+      color: #0f172a;
+      font-family: var(--font-family);
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 20px;
+    }
+
+    /* =====================================================
+       FEEDBACK BUTTON
+       ===================================================== */
+    .feedback-button {
+      align-items: center;
+      background: rgba(202, 202, 211, 0.62);
+      border: none;
+      border-radius: 5px;
+      bottom: 60px;
+      color: #000;
+      cursor: pointer;
+      display: flex;
+      height: 36px;
+      justify-content: center;
+      position: fixed;
+      right: 30px;
+      width: 36px;
+      z-index: 1000;
+    }
+
+    .feedback-button:hover {
+      background: rgba(202, 202, 211, 0.85);
+    }
+
+    /* =====================================================
+       ICON SVG SIZING
+       ===================================================== */
+    i[data-icon-name] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    i[data-icon-name] svg {
+      width: 1em;
+      height: 1em;
+      display: block;
+    }
+
+    /* =====================================================
+       VISIBILITY HELPERS
+       ===================================================== */
+    .podium_2943a085.hidden {
+      display: none;
+    }
+
+    .userRowContainer_2943a085.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#">Home</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <a href="#">EDU</a>
+      <span class="sep" aria-hidden="true">›</span>
+      <span>Company Leader Board 2025</span>
+    </nav>
+    <h1 class="page-title">Company Leader Board 2025</h1>
+
+    <!-- LEADERBOARD SECTION -->
+    <section class="leaderboard_2943a085">
+
+      <!-- Header -->
+      <header class="header_2943a085">
+        <div class="headerContent_2943a085">
+          <h2>Learning Champions</h2>
+          <p>Recognising employees who actively contribute to knowledge sharing and continuous learning</p>
+        </div>
+      </header>
+
+      <!-- Filter Bar -->
+      <div class="filterBar_2943a085">
+        <div class="filters_2943a085">
+
+          <!-- Dropdown 0 — Years (120px) -->
+          <div class="ms-Dropdown-container root-241" id="dropdown-container-0">
+            <div id="Dropdown0" class="ms-Dropdown dropdown-242"
+                 data-is-focusable="true" data-ktp-target="true" tabindex="0"
+                 role="combobox" aria-haspopup="listbox" aria-expanded="false">
+              <span id="Dropdown0-option" class="ms-Dropdown-title title-273" aria-invalid="false">All Years</span>
+              <span class="ms-Dropdown-caretDownWrapper caretDownWrapper-244">
+                <i class="ms-Dropdown-caretDown caretDown-260" data-icon-name="ChevronDown" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="ms-Dropdown-items-wrapper" role="listbox" aria-label="Year filter options"></div>
+          </div>
+
+          <!-- Dropdown 1 — Quarters (120px) -->
+          <div class="ms-Dropdown-container root-241" id="dropdown-container-1">
+            <div id="Dropdown1" class="ms-Dropdown dropdown-242"
+                 data-is-focusable="true" data-ktp-target="true" tabindex="0"
+                 role="combobox" aria-haspopup="listbox" aria-expanded="false">
+              <span id="Dropdown1-option" class="ms-Dropdown-title title-273" aria-invalid="false">All Quarters</span>
+              <span class="ms-Dropdown-caretDownWrapper caretDownWrapper-244">
+                <i class="ms-Dropdown-caretDown caretDown-260" data-icon-name="ChevronDown" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="ms-Dropdown-items-wrapper" role="listbox" aria-label="Quarter filter options"></div>
+          </div>
+
+          <!-- Dropdown 2 — Categories (150px) -->
+          <div class="ms-Dropdown-container root-261" id="dropdown-container-2">
+            <div id="Dropdown2" class="ms-Dropdown dropdown-242"
+                 data-is-focusable="true" data-ktp-target="true" tabindex="0"
+                 role="combobox" aria-haspopup="listbox" aria-expanded="false">
+              <span id="Dropdown2-option" class="ms-Dropdown-title title-273" aria-invalid="false">All Categories</span>
+              <span class="ms-Dropdown-caretDownWrapper caretDownWrapper-244">
+                <i class="ms-Dropdown-caretDown caretDown-260" data-icon-name="ChevronDown" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="ms-Dropdown-items-wrapper" role="listbox" aria-label="Category filter options"></div>
+          </div>
+
+        </div>
+
+        <!-- Search -->
+        <div class="search_2943a085">
+          <div class="ms-SearchBox root-262">
+            <div class="ms-SearchBox-iconContainer iconContainer-263" aria-hidden="true">
+              <i class="ms-SearchBox-icon icon-267" data-icon-name="Search" aria-hidden="true"></i>
+            </div>
+            <input id="SearchBox3" class="ms-SearchBox-field field-266"
+                   placeholder="Search employee..." role="searchbox" value="" type="text"
+                   autocomplete="off" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Podium — populated by JS (DOM order: rank2, rank1, rank3) -->
+      <div class="podium_2943a085" id="podium"></div>
+
+      <!-- List — populated by JS -->
+      <div class="list_2943a085" id="list" data-note="SAMPLED: first 3 of N rows shown — pattern repeats"></div>
+
+    </section>
+  </div>
+
+  <!-- FEEDBACK BUTTON (outside page wrapper, fixed) -->
+  <button class="feedback-button" title="Share feedback" aria-label="Share feedback">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+    </svg>
+  </button>
+
+  <script>
+    /* ==========================================================
+       DATA — verbatim from task-1/input/data.js
+       ========================================================== */
+    const LEADERBOARD_DATA = [
+      {
+        id: 1, rank: 1, name: "Marcus Chen", avatarInitials: "MC", avatarColor: "#4f46e5",
+        score: 547, categories: { lab: 21, reg: 30, uni: 20, edu: 41 },
+        department: "Data Engineering", year: 2025, quarter: "Q2",
+        activities: [
+          { name: "[EDU] AI Integration Workshop 2025",          category: "Education",              date: "15-Jan-2025", points: 96 },
+          { name: "[REG] Tech Leadership Summit Keynote",        category: "Public Speaking",         date: "03-Mar-2025", points: 96 },
+          { name: "[UNI] Partnership Program — Polytechnic",     category: "University Partnership",  date: "22-Feb-2025", points: 64 },
+          { name: "[LAB] Mentoring of R. Foster",                category: "Mentoring",               date: "10-Apr-2025", points: 64 },
+          { name: "[EDU] Machine Learning Fundamentals Course",  category: "Education",              date: "28-Nov-2024", points: 64 },
+          { name: "[REG] Cloud Architecture Panel Discussion",   category: "Public Speaking",         date: "05-Oct-2024", points: 64 },
+          { name: "[UNI] Annual Research Collaboration Summit",  category: "University Partnership",  date: "18-Sep-2024", points: 64 },
+          { name: "[LAB] Mentoring of K. Nguyen",                category: "Mentoring",               date: "07-Aug-2024", points: 32 },
+          { name: "[EDU] Data Pipeline Design Workshop",         category: "Education",              date: "14-Jul-2024", points: 32 },
+          { name: "[REG] DevOps Innovation Conference Talk",     category: "Public Speaking",         date: "20-Jun-2024", points: 32 },
+          { name: "[UNI] Lecture Series — Applied Data Science", category: "University Partnership",  date: "11-May-2024", points: 64 },
+          { name: "[LAB] Mentoring of T. Osei",                  category: "Mentoring",               date: "02-Apr-2024", points: 32 },
+          { name: "[EDU] Python Advanced Patterns Bootcamp",     category: "Education",              date: "25-Mar-2024", points: 32 },
+          { name: "[REG] Analytics Leaders Roundtable",          category: "Public Speaking",         date: "14-Feb-2024", points: 32 },
+          { name: "[UNI] Intern Recruitment Collaboration",      category: "University Partnership",  date: "30-Jan-2024", points: 32 },
+          { name: "[LAB] Mentoring of V. Kaur",                  category: "Mentoring",               date: "19-Dec-2023", points: 64 },
+          { name: "[EDU] NLP for Enterprise Applications",       category: "Education",              date: "08-Nov-2023", points: 32 },
+          { name: "[REG] Winter Data Symposium Presentation",    category: "Public Speaking",         date: "27-Oct-2023", points: 32 },
+          { name: "[UNI] Thesis Co-Supervision Program",         category: "University Partnership",  date: "15-Sep-2023", points: 32 },
+          { name: "[LAB] Mentoring of B. Thornton",              category: "Mentoring",               date: "04-Aug-2023", points: 32 }
+        ]
+      },
+      {
+        id: 2, rank: 2, name: "Priya Sharma", avatarInitials: "PS", avatarColor: "#0891b2",
+        score: 338, categories: { lab: 8, reg: 28, uni: 12, edu: 14 },
+        department: "ML Research", year: 2025, quarter: "Q1",
+        activities: [
+          { name: "[EDU] Bayesian Methods in Practice",          category: "Education",              date: "20-Jan-2025", points: 64 },
+          { name: "[REG] ML Research Showcase Keynote",          category: "Public Speaking",         date: "08-Mar-2025", points: 64 },
+          { name: "[UNI] Joint Research Initiative Launch",      category: "University Partnership",  date: "17-Feb-2025", points: 64 },
+          { name: "[LAB] Mentoring of C. Barbosa",               category: "Mentoring",               date: "03-Dec-2024", points: 32 },
+          { name: "[EDU] Statistical Modelling Masterclass",     category: "Education",              date: "22-Oct-2024", points: 64 },
+          { name: "[REG] Responsible AI Panel Discussion",       category: "Public Speaking",         date: "11-Sep-2024", points: 32 },
+          { name: "[UNI] University Hackathon Co-Mentoring",     category: "University Partnership",  date: "29-Aug-2024", points: 32 },
+          { name: "[LAB] Mentoring of H. Kowalski",              category: "Mentoring",               date: "15-Jul-2024", points: 32 },
+          { name: "[EDU] Deep Learning for Time Series",         category: "Education",              date: "01-Jun-2024", points: 32 },
+          { name: "[REG] Women in Tech Conference Talk",         category: "Public Speaking",         date: "19-Apr-2024", points: 32 },
+          { name: "[UNI] Curriculum Advisory Board Session",     category: "University Partnership",  date: "07-Mar-2024", points: 64 },
+          { name: "[LAB] Mentoring of E. Tremblay",              category: "Mentoring",               date: "24-Jan-2024", points: 32 },
+          { name: "[EDU] Reinforcement Learning Workshop",       category: "Education",              date: "12-Dec-2023", points: 32 },
+          { name: "[REG] AI Quarterly Review Presentation",      category: "Public Speaking",         date: "30-Oct-2023", points: 32 },
+          { name: "[UNI] Student Project Evaluation Panel",      category: "University Partnership",  date: "18-Sep-2023", points: 32 }
+        ]
+      },
+      {
+        id: 3, rank: 3, name: "Lena Müller", avatarInitials: "LM", avatarColor: "#be185d",
+        score: 332, categories: { lab: 10, reg: 20, uni: 14, edu: 20 },
+        department: "Product Analytics", year: 2024, quarter: "Q4",
+        activities: [
+          { name: "[EDU] Product Analytics Certification",       category: "Education",              date: "25-Jan-2025", points: 64 },
+          { name: "[REG] Data Storytelling Workshop Lead",       category: "Public Speaking",         date: "12-Mar-2025", points: 64 },
+          { name: "[UNI] Analytics Internship Coordination",     category: "University Partnership",  date: "04-Feb-2025", points: 64 },
+          { name: "[LAB] Mentoring of A. Novak",                 category: "Mentoring",               date: "18-Nov-2024", points: 32 },
+          { name: "[EDU] A/B Testing Best Practices Seminar",    category: "Education",              date: "05-Oct-2024", points: 64 },
+          { name: "[REG] Product Metrics Summit Talk",           category: "Public Speaking",         date: "23-Sep-2024", points: 32 },
+          { name: "[UNI] Data Science Capstone Supervision",     category: "University Partnership",  date: "10-Aug-2024", points: 32 },
+          { name: "[LAB] Mentoring of F. Brandt",                category: "Mentoring",               date: "28-Jun-2024", points: 32 },
+          { name: "[EDU] Cohort Analysis Advanced Methods",      category: "Education",              date: "16-May-2024", points: 32 },
+          { name: "[REG] Growth Analytics Panel Moderator",      category: "Public Speaking",         date: "03-Apr-2024", points: 32 },
+          { name: "[UNI] Research Methods Guest Lecture",        category: "University Partnership",  date: "20-Feb-2024", points: 32 },
+          { name: "[LAB] Mentoring of S. Patel",                 category: "Mentoring",               date: "09-Jan-2024", points: 32 },
+          { name: "[EDU] Visualisation with D3.js Workshop",     category: "Education",              date: "27-Nov-2023", points: 32 },
+          { name: "[REG] Quarterly Analytics Briefing",          category: "Public Speaking",         date: "15-Oct-2023", points: 32 }
+        ]
+      },
+      {
+        id: 4, rank: 4, name: "James Okafor", avatarInitials: "JO", avatarColor: "#15803d",
+        score: 267, categories: { lab: 9, reg: 18, uni: 12, edu: 9 },
+        department: "Cloud Infrastructure", year: 2025, quarter: "Q2",
+        activities: [
+          { name: "[EDU] Cloud Cost Optimisation Training",      category: "Education",              date: "14-Feb-2025", points: 64 },
+          { name: "[REG] Infrastructure Summit Panel",           category: "Public Speaking",         date: "02-Jan-2025", points: 32 },
+          { name: "[UNI] Cloud Computing Guest Lecture",         category: "University Partnership",  date: "20-Dec-2024", points: 32 },
+          { name: "[LAB] Mentoring of L. Fischer",               category: "Mentoring",               date: "08-Nov-2024", points: 32 },
+          { name: "[EDU] Kubernetes for Scale Workshop",         category: "Education",              date: "27-Sep-2024", points: 32 },
+          { name: "[REG] DevOps Days Conference Talk",           category: "Public Speaking",         date: "15-Aug-2024", points: 32 },
+          { name: "[UNI] Engineering Career Day Participant",    category: "University Partnership",  date: "04-Jul-2024", points: 32 },
+          { name: "[LAB] Mentoring of P. Ivanova",               category: "Mentoring",               date: "22-May-2024", points: 16 },
+          { name: "[EDU] Terraform Advanced Patterns",           category: "Education",              date: "10-Apr-2024", points: 32 },
+          { name: "[REG] Cloud Transformation Webinar",          category: "Public Speaking",         date: "28-Feb-2024", points: 16 },
+          { name: "[UNI] Final Year Project Advisory",           category: "University Partnership",  date: "16-Jan-2024", points: 32 },
+          { name: "[LAB] Mentoring of G. Santos",                category: "Mentoring",               date: "04-Dec-2023", points: 16 }
+        ]
+      },
+      {
+        id: 5, rank: 5, name: "Sofia Bergström", avatarInitials: "SB", avatarColor: "#b45309",
+        score: 253, categories: { lab: 13, reg: 14, uni: 9, edu: 15 },
+        department: "Data Engineering", year: 2024, quarter: "Q3",
+        activities: [
+          { name: "[EDU] Feature Engineering Techniques",        category: "Education",              date: "30-Jan-2025", points: 64 },
+          { name: "[REG] Analytics Tools Showcase",              category: "Public Speaking",         date: "18-Mar-2025", points: 32 },
+          { name: "[UNI] Data Engineering Curriculum Input",     category: "University Partnership",  date: "06-Feb-2025", points: 32 },
+          { name: "[LAB] Mentoring of D. Chakraborty",           category: "Mentoring",               date: "25-Oct-2024", points: 16 },
+          { name: "[EDU] Spark Performance Tuning Course",       category: "Education",              date: "13-Sep-2024", points: 32 },
+          { name: "[REG] Pipeline Architecture Webinar",         category: "Public Speaking",         date: "01-Aug-2024", points: 32 },
+          { name: "[UNI] Academic Exchange Program Panel",       category: "University Partnership",  date: "20-Jun-2024", points: 32 },
+          { name: "[LAB] Mentoring of O. Lindgren",              category: "Mentoring",               date: "08-May-2024", points: 16 },
+          { name: "[EDU] Stream Processing Workshop",            category: "Education",              date: "26-Mar-2024", points: 32 },
+          { name: "[REG] Data Mesh Overview Presentation",       category: "Public Speaking",         date: "14-Feb-2024", points: 16 },
+          { name: "[UNI] Student Mentoring Evening",             category: "University Partnership",  date: "02-Jan-2024", points: 32 }
+        ]
+      },
+      {
+        id: 6, rank: 6, name: "Aiden Walsh", avatarInitials: "AW", avatarColor: "#7c3aed",
+        score: 246, categories: { lab: 9, reg: 16, uni: 9, edu: 14 },
+        department: "Security Operations", year: 2025, quarter: "Q1",
+        activities: [
+          { name: "[EDU] Threat Modelling Fundamentals",         category: "Education",              date: "22-Feb-2025", points: 64 },
+          { name: "[REG] Cybersecurity Leaders Forum",           category: "Public Speaking",         date: "10-Jan-2025", points: 32 },
+          { name: "[UNI] Security Engineering Guest Lecture",    category: "University Partnership",  date: "29-Nov-2024", points: 32 },
+          { name: "[LAB] Mentoring of N. Ruiz",                  category: "Mentoring",               date: "17-Oct-2024", points: 16 },
+          { name: "[EDU] Zero Trust Architecture Course",        category: "Education",              date: "05-Sep-2024", points: 32 },
+          { name: "[REG] SOC Operations Panel Discussion",       category: "Public Speaking",         date: "24-Jul-2024", points: 32 },
+          { name: "[UNI] Ethical Hacking Workshop Co-Lead",      category: "University Partnership",  date: "12-Jun-2024", points: 32 },
+          { name: "[LAB] Mentoring of M. Vestergaard",           category: "Mentoring",               date: "30-Apr-2024", points: 16 },
+          { name: "[EDU] SIEM Implementation Seminar",           category: "Education",              date: "18-Mar-2024", points: 32 },
+          { name: "[REG] Incident Response Masterclass",         category: "Public Speaking",         date: "06-Feb-2024", points: 16 },
+          { name: "[UNI] Cyber Careers Panel for Students",      category: "University Partnership",  date: "25-Nov-2023", points: 32 }
+        ]
+      },
+      {
+        id: 7, rank: 7, name: "Nora Petrov", avatarInitials: "NP", avatarColor: "#0f766e",
+        score: 193, categories: { lab: 11, reg: 11, uni: 7, edu: 9 },
+        department: "ML Research", year: 2023, quarter: "Q4",
+        activities: [
+          { name: "[EDU] Generative Models in Practice",         category: "Education",              date: "15-Mar-2025", points: 32 },
+          { name: "[REG] ML Research Roundtable Speaker",        category: "Public Speaking",         date: "01-Feb-2025", points: 32 },
+          { name: "[UNI] Joint PhD Programme Advisory",          category: "University Partnership",  date: "20-Dec-2024", points: 32 },
+          { name: "[LAB] Mentoring of A. Hassan",                category: "Mentoring",               date: "09-Nov-2024", points: 16 },
+          { name: "[EDU] Graph Neural Networks Workshop",        category: "Education",              date: "28-Sep-2024", points: 32 },
+          { name: "[REG] AI Safety Symposium Talk",              category: "Public Speaking",         date: "16-Aug-2024", points: 16 },
+          { name: "[UNI] Research Paper Co-Authorship Prog",     category: "University Partnership",  date: "05-Jul-2024", points: 32 },
+          { name: "[LAB] Mentoring of C. Wójcik",                category: "Mentoring",               date: "23-May-2024", points: 16 },
+          { name: "[EDU] Explainability in ML Certification",    category: "Education",              date: "11-Apr-2024", points: 32 }
+        ]
+      },
+      {
+        id: 8, rank: 8, name: "Diego Reyes", avatarInitials: "DR", avatarColor: "#c2410c",
+        score: 187, categories: { lab: 7, reg: 13, uni: 6, edu: 11 },
+        department: "DevOps Platform", year: 2024, quarter: "Q1",
+        activities: [
+          { name: "[EDU] Container Orchestration Training",      category: "Education",              date: "08-Feb-2025", points: 32 },
+          { name: "[REG] Platform Engineering Summit",           category: "Public Speaking",         date: "27-Dec-2024", points: 32 },
+          { name: "[UNI] DevOps Career Day Presentation",        category: "University Partnership",  date: "15-Nov-2024", points: 16 },
+          { name: "[LAB] Mentoring of F. Nakamura",              category: "Mentoring",               date: "03-Oct-2024", points: 16 },
+          { name: "[EDU] GitOps Principles Workshop",            category: "Education",              date: "22-Aug-2024", points: 32 },
+          { name: "[REG] SRE Practices Panel Discussion",        category: "Public Speaking",         date: "10-Jul-2024", points: 16 },
+          { name: "[UNI] CI/CD Pipeline Guest Lecture",          category: "University Partnership",  date: "29-May-2024", points: 32 },
+          { name: "[LAB] Mentoring of T. Adamson",               category: "Mentoring",               date: "17-Apr-2024", points: 16 }
+        ]
+      },
+      {
+        id: 9, rank: 9, name: "Yuki Tanaka", avatarInitials: "YT", avatarColor: "#0369a1",
+        score: 182, categories: { lab: 10, reg: 8, uni: 8, edu: 10 },
+        department: "Product Analytics", year: 2025, quarter: "Q3",
+        activities: [
+          { name: "[EDU] Customer Segmentation Techniques",      category: "Education",              date: "19-Jan-2025", points: 32 },
+          { name: "[REG] Product Insights Forum Speaker",        category: "Public Speaking",         date: "07-Mar-2025", points: 32 },
+          { name: "[UNI] Analytics for Business Guest Lecture",  category: "University Partnership",  date: "24-Feb-2025", points: 16 },
+          { name: "[LAB] Mentoring of E. Korhonen",              category: "Mentoring",               date: "13-Dec-2024", points: 16 },
+          { name: "[EDU] Funnel Analysis Advanced Course",       category: "Education",              date: "01-Nov-2024", points: 32 },
+          { name: "[REG] Data-Driven Product Panel",             category: "Public Speaking",         date: "19-Sep-2024", points: 16 },
+          { name: "[UNI] Student Project Consultation",          category: "University Partnership",  date: "07-Aug-2024", points: 32 },
+          { name: "[LAB] Mentoring of R. Melo",                  category: "Mentoring",               date: "26-Jun-2024", points: 16 }
+        ]
+      },
+      {
+        id: 10, rank: 10, name: "Fatima Al-Rashid", avatarInitials: "FA", avatarColor: "#4d7c0f",
+        score: 175, categories: { lab: 7, reg: 10, uni: 6, edu: 13 },
+        department: "Data Engineering", year: 2024, quarter: "Q2",
+        activities: [
+          { name: "[EDU] Data Quality Frameworks Course",        category: "Education",              date: "12-Mar-2025", points: 32 },
+          { name: "[REG] Analytics Best Practices Webinar",      category: "Public Speaking",         date: "28-Jan-2025", points: 32 },
+          { name: "[UNI] Data Literacy Programme Input",         category: "University Partnership",  date: "16-Dec-2024", points: 16 },
+          { name: "[LAB] Mentoring of B. Olawale",               category: "Mentoring",               date: "04-Nov-2024", points: 16 },
+          { name: "[EDU] SQL Performance Optimisation",          category: "Education",              date: "23-Sep-2024", points: 32 },
+          { name: "[REG] Engineering Metrics Talk",              category: "Public Speaking",         date: "11-Aug-2024", points: 16 },
+          { name: "[UNI] Research Methods Workshop Assist",      category: "University Partnership",  date: "30-Jun-2024", points: 32 }
+        ]
+      },
+      {
+        id: 11, rank: 11, name: "Connor MacAllister", avatarInitials: "CM", avatarColor: "#9f1239",
+        score: 142, categories: { lab: 4, reg: 8, uni: 6, edu: 10 },
+        department: "Cloud Infrastructure", year: 2023, quarter: "Q2",
+        activities: [
+          { name: "[EDU] Multi-Cloud Strategy Training",         category: "Education",              date: "05-Feb-2025", points: 32 },
+          { name: "[REG] Cloud Trends Panel 2025",               category: "Public Speaking",         date: "24-Nov-2024", points: 16 },
+          { name: "[UNI] Infrastructure Engineering Lecture",    category: "University Partnership",  date: "12-Oct-2024", points: 32 },
+          { name: "[LAB] Mentoring of Y. Oduya",                 category: "Mentoring",               date: "31-Aug-2024", points: 16 },
+          { name: "[EDU] Networking Fundamentals Seminar",       category: "Education",              date: "18-Jul-2024", points: 16 },
+          { name: "[REG] FinOps Fundamentals Webinar",           category: "Public Speaking",         date: "06-Jun-2024", points: 32 }
+        ]
+      },
+      {
+        id: 12, rank: 12, name: "Zara Okonkwo", avatarInitials: "ZO", avatarColor: "#1d4ed8",
+        score: 133, categories: { lab: 7, reg: 9, uni: 3, edu: 9 },
+        department: "Security Operations", year: 2025, quarter: "Q4",
+        activities: [
+          { name: "[EDU] Penetration Testing Bootcamp",          category: "Education",              date: "18-Jan-2025", points: 32 },
+          { name: "[REG] Security Awareness Campaign Lead",      category: "Public Speaking",         date: "06-Mar-2025", points: 16 },
+          { name: "[UNI] Cybersecurity Student Workshop",        category: "University Partnership",  date: "24-Feb-2025", points: 32 },
+          { name: "[LAB] Mentoring of P. Eriksen",               category: "Mentoring",               date: "13-Dec-2024", points: 16 },
+          { name: "[EDU] Cloud Security Certification Prep",     category: "Education",              date: "01-Nov-2024", points: 32 },
+          { name: "[REG] Digital Identity Panel Discussion",     category: "Public Speaking",         date: "19-Sep-2024", points: 16 }
+        ]
+      },
+      {
+        id: 13, rank: 13, name: "Henrik Lindqvist", avatarInitials: "HL", avatarColor: "#065f46",
+        score: 126, categories: { lab: 4, reg: 9, uni: 4, edu: 8 },
+        department: "ML Research", year: 2024, quarter: "Q3",
+        activities: [
+          { name: "[EDU] Time Series Analysis Workshop",         category: "Education",              date: "09-Feb-2025", points: 32 },
+          { name: "[REG] Research Methods Symposium",            category: "Public Speaking",         date: "28-Dec-2024", points: 16 },
+          { name: "[UNI] Machine Learning Study Group",          category: "University Partnership",  date: "16-Nov-2024", points: 16 },
+          { name: "[LAB] Mentoring of A. Rossi",                 category: "Mentoring",               date: "04-Oct-2024", points: 16 },
+          { name: "[EDU] Causal Inference Training",             category: "Education",              date: "22-Aug-2024", points: 32 },
+          { name: "[REG] Data Science Webinar Series",           category: "Public Speaking",         date: "10-Jul-2024", points: 16 }
+        ]
+      },
+      {
+        id: 14, rank: 14, name: "Amara Diallo", avatarInitials: "AD", avatarColor: "#6d28d9",
+        score: 117, categories: { lab: 3, reg: 7, uni: 6, edu: 5 },
+        department: "DevOps Platform", year: 2023, quarter: "Q1",
+        activities: [
+          { name: "[EDU] Infrastructure as Code Training",       category: "Education",              date: "23-Jan-2025", points: 32 },
+          { name: "[REG] DevOps Best Practices Webinar",         category: "Public Speaking",         date: "11-Mar-2025", points: 16 },
+          { name: "[UNI] Platform Engineering Guest Lecture",    category: "University Partnership",  date: "29-Jan-2025", points: 16 },
+          { name: "[LAB] Mentoring of J. Kristiansen",           category: "Mentoring",               date: "18-Nov-2024", points: 16 },
+          { name: "[EDU] Observability Tools Workshop",          category: "Education",              date: "06-Oct-2024", points: 32 }
+        ]
+      },
+      {
+        id: 15, rank: 15, name: "Ethan Brooks", avatarInitials: "EB", avatarColor: "#0e7490",
+        score: 109, categories: { lab: 4, reg: 8, uni: 3, edu: 7 },
+        department: "Product Analytics", year: 2025, quarter: "Q2",
+        activities: [
+          { name: "[EDU] Statistical Methods for PMs",           category: "Education",              date: "16-Feb-2025", points: 32 },
+          { name: "[REG] Product Analytics Talk",                category: "Public Speaking",         date: "04-Jan-2025", points: 16 },
+          { name: "[UNI] Analytics in Product Dev Lecture",      category: "University Partnership",  date: "22-Dec-2024", points: 16 },
+          { name: "[LAB] Mentoring of L. Marques",               category: "Mentoring",               date: "10-Nov-2024", points: 16 },
+          { name: "[EDU] KPI Framework Design Training",         category: "Education",              date: "28-Sep-2024", points: 32 }
+        ]
+      },
+      {
+        id: 16, rank: 16, name: "Valentina Cruz", avatarInitials: "VC", avatarColor: "#a16207",
+        score: 97, categories: { lab: 7, reg: 5, uni: 3, edu: 5 },
+        department: "Data Engineering", year: 2024, quarter: "Q4",
+        activities: [
+          { name: "[EDU] Data Warehousing Principles",           category: "Education",              date: "07-Mar-2025", points: 16 },
+          { name: "[REG] Analytics Community Meetup Talk",       category: "Public Speaking",         date: "24-Jan-2025", points: 16 },
+          { name: "[LAB] Mentoring of M. Bergmann",              category: "Mentoring",               date: "12-Dec-2024", points: 16 },
+          { name: "[EDU] ETL Pipeline Best Practices",           category: "Education",              date: "30-Oct-2024", points: 32 }
+        ]
+      },
+      {
+        id: 17, rank: 17, name: "Rohan Mehta", avatarInitials: "RM", avatarColor: "#166534",
+        score: 93, categories: { lab: 6, reg: 5, uni: 3, edu: 5 },
+        department: "Cloud Infrastructure", year: 2023, quarter: "Q3",
+        activities: [
+          { name: "[EDU] Microservices Design Patterns",         category: "Education",              date: "20-Feb-2025", points: 16 },
+          { name: "[REG] Cloud Architecture Presentation",       category: "Public Speaking",         date: "08-Jan-2025", points: 16 },
+          { name: "[UNI] Systems Design Guest Lecture",          category: "University Partnership",  date: "27-Nov-2024", points: 16 },
+          { name: "[LAB] Mentoring of F. Sorensen",              category: "Mentoring",               date: "15-Oct-2024", points: 32 }
+        ]
+      },
+      {
+        id: 18, rank: 18, name: "Ingrid Hansen", avatarInitials: "IH", avatarColor: "#7e22ce",
+        score: 87, categories: { lab: 6, reg: 4, uni: 3, edu: 5 },
+        department: "Security Operations", year: 2025, quarter: "Q1",
+        activities: [
+          { name: "[EDU] Identity Management Course",            category: "Education",              date: "14-Mar-2025", points: 16 },
+          { name: "[REG] Privacy Engineering Talk",              category: "Public Speaking",         date: "01-Feb-2025", points: 16 },
+          { name: "[UNI] Security Policy Guest Lecture",         category: "University Partnership",  date: "20-Dec-2024", points: 16 },
+          { name: "[LAB] Mentoring of C. Nyström",               category: "Mentoring",               date: "08-Nov-2024", points: 32 }
+        ]
+      },
+      {
+        id: 19, rank: 19, name: "Kwame Asante", avatarInitials: "KA", avatarColor: "#0c4a6e",
+        score: 79, categories: { lab: 4, reg: 4, uni: 3, edu: 5 },
+        department: "ML Research", year: 2024, quarter: "Q1",
+        activities: [
+          { name: "[EDU] NLP Applications Workshop",             category: "Education",              date: "11-Feb-2025", points: 16 },
+          { name: "[REG] AI Ethics Panel Participant",           category: "Public Speaking",         date: "30-Dec-2024", points: 16 },
+          { name: "[UNI] Thesis Support Programme",              category: "University Partnership",  date: "18-Nov-2024", points: 32 }
+        ]
+      },
+      {
+        id: 20, rank: 20, name: "Mia Johansson", avatarInitials: "MJ", avatarColor: "#854d0e",
+        score: 73, categories: { lab: 4, reg: 3, uni: 3, edu: 5 },
+        department: "DevOps Platform", year: 2023, quarter: "Q4",
+        activities: [
+          { name: "[EDU] Deployment Automation Training",        category: "Education",              date: "03-Mar-2025", points: 16 },
+          { name: "[REG] DevOps Community Talk",                 category: "Public Speaking",         date: "20-Jan-2025", points: 16 },
+          { name: "[LAB] Mentoring of B. Acosta",                category: "Mentoring",               date: "09-Dec-2024", points: 32 }
+        ]
+      },
+      {
+        id: 21, rank: 21, name: "Omar Hassan", avatarInitials: "OH", avatarColor: "#3b0764",
+        score: 67, categories: { lab: 3, reg: 4, uni: 2, edu: 5 },
+        department: "Product Analytics", year: 2025, quarter: "Q3",
+        activities: [
+          { name: "[EDU] Funnel Metrics Workshop",               category: "Education",              date: "25-Feb-2025", points: 16 },
+          { name: "[REG] Analytics Showcase Presenter",          category: "Public Speaking",         date: "13-Jan-2025", points: 16 },
+          { name: "[UNI] Business Analytics Intro Lecture",      category: "University Partnership",  date: "01-Dec-2024", points: 16 }
+        ]
+      },
+      {
+        id: 22, rank: 22, name: "Chloe Dubois", avatarInitials: "CD", avatarColor: "#134e4a",
+        score: 61, categories: { lab: 3, reg: 3, uni: 2, edu: 5 },
+        department: "Data Engineering", year: 2024, quarter: "Q2",
+        activities: [
+          { name: "[EDU] Data Governance Basics",                category: "Education",              date: "17-Feb-2025", points: 16 },
+          { name: "[LAB] Mentoring of T. Haugen",                category: "Mentoring",               date: "05-Jan-2025", points: 16 },
+          { name: "[REG] Data Quality Meetup Talk",              category: "Public Speaking",         date: "24-Nov-2024", points: 16 }
+        ]
+      },
+      {
+        id: 23, rank: 23, name: "Tariq Winters", avatarInitials: "TW", avatarColor: "#78350f",
+        score: 58, categories: { lab: 3, reg: 3, uni: 2, edu: 4 },
+        department: "Cloud Infrastructure", year: 2023, quarter: "Q2",
+        activities: [
+          { name: "[EDU] Networking Concepts Refresher",         category: "Education",              date: "10-Mar-2025", points: 16 },
+          { name: "[REG] Tech Team Lunch & Learn",               category: "Public Speaking",         date: "28-Jan-2025", points: 8  }
+        ]
+      },
+      {
+        id: 24, rank: 24, name: "Elena Volkov", avatarInitials: "EV", avatarColor: "#1e1b4b",
+        score: 54, categories: { lab: 2, reg: 3, uni: 2, edu: 4 },
+        department: "Security Operations", year: 2024, quarter: "Q3",
+        activities: [
+          { name: "[EDU] Vulnerability Assessment Basics",       category: "Education",              date: "22-Feb-2025", points: 8  },
+          { name: "[REG] Security Awareness Brown Bag",          category: "Public Speaking",         date: "10-Jan-2025", points: 16 }
+        ]
+      },
+      {
+        id: 25, rank: 25, name: "Felix Andersen", avatarInitials: "FAN", avatarColor: "#064e3b",
+        score: 51, categories: { lab: 2, reg: 2, uni: 2, edu: 5 },
+        department: "ML Research", year: 2023, quarter: "Q1",
+        activities: [
+          { name: "[EDU] Research Methodology Seminar",          category: "Education",              date: "18-Mar-2025", points: 8  },
+          { name: "[LAB] Mentoring of G. Magnusson",             category: "Mentoring",               date: "05-Feb-2025", points: 16 }
+        ]
+      }
+    ];
+
+    /* ==========================================================
+       INLINE SVG ICONS
+       ========================================================== */
+    const SVG = {
+      FavoriteStarFill: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`,
+      ChevronDown: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>`,
+      Search: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+      Presentation: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+      Education: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
+      University: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+      Mentoring: `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+    };
+
+    /* ==========================================================
+       FILTER STATE
+       ========================================================== */
+    let filterYear     = 'All Years';
+    let filterQuarter  = 'All Quarters';
+    let filterCategory = 'All Categories';
+    let filterSearch   = '';
+
+    /* ==========================================================
+       CATEGORY STAT ICON MAPPING
+       lab  → Education icon
+       reg  → Presentation icon
+       uni  → University icon
+       edu  → Mentoring icon
+       ========================================================== */
+    const STAT_MAP = {
+      lab: { icon: 'Education',     tooltip: 'Education sessions' },
+      reg: { icon: 'Presentation',  tooltip: 'Public Speaking events' },
+      uni: { icon: 'University',    tooltip: 'University Partnerships' },
+      edu: { icon: 'Mentoring',     tooltip: 'Mentoring activities' }
+    };
+
+    /* Activity category → badge class */
+    const BADGE_MAP = {
+      'Education':              'categoryTraining_2943a085',
+      'University Partnership': 'categoryCommunity_2943a085',
+      'Public Speaking':        'categoryDefault_2943a085',
+      'Mentoring':              'categoryContribution_2943a085'
+    };
+
+    /* ==========================================================
+       DROPDOWN INITIALISATION
+       ========================================================== */
+    function buildDropdown(containerId, dropdownId, optionId, options, onSelect) {
+      const container  = document.getElementById(containerId);
+      const dropdown   = document.getElementById(dropdownId);
+      const optionSpan = document.getElementById(optionId);
+      const listbox    = container.querySelector('.ms-Dropdown-items-wrapper');
+
+      /* Inject ChevronDown SVG into caret */
+      const caret = dropdown.querySelector('[data-icon-name="ChevronDown"]');
+      if (caret) caret.innerHTML = SVG.ChevronDown;
+
+      /* Build option items */
+      options.forEach((opt, idx) => {
+        const item = document.createElement('div');
+        item.className = 'ms-Dropdown-item' + (idx === 0 ? ' selected' : '');
+        item.setAttribute('role', 'option');
+        item.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        item.textContent = opt;
+
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          optionSpan.textContent = opt;
+          listbox.querySelectorAll('.ms-Dropdown-item').forEach(el => {
+            el.classList.remove('selected');
+            el.setAttribute('aria-selected', 'false');
+          });
+          item.classList.add('selected');
+          item.setAttribute('aria-selected', 'true');
+          closeAllDropdowns();
+          onSelect(opt);
+          render();
+        });
+
+        listbox.appendChild(item);
+      });
+
+      /* Toggle open/close */
+      dropdown.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = container.classList.contains('open');
+        closeAllDropdowns();
+        if (!isOpen) {
+          container.classList.add('open');
+          dropdown.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      /* Keyboard support */
+      dropdown.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dropdown.click();
+        } else if (e.key === 'Escape') {
+          closeAllDropdowns();
+        }
+      });
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.ms-Dropdown-container').forEach(c => {
+        c.classList.remove('open');
+        const dd = c.querySelector('.ms-Dropdown');
+        if (dd) dd.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    /* Close dropdowns when clicking outside */
+    document.addEventListener('click', closeAllDropdowns);
+
+    function initDropdowns() {
+      const years      = [...new Set(LEADERBOARD_DATA.map(e => e.year))].sort((a, b) => a - b);
+      const quarters   = ['Q1', 'Q2', 'Q3', 'Q4'];
+      const categories = [...new Set(
+        LEADERBOARD_DATA.flatMap(e => e.activities.map(a => a.category))
+      )].sort();
+
+      buildDropdown(
+        'dropdown-container-0', 'Dropdown0', 'Dropdown0-option',
+        ['All Years', ...years.map(String)],
+        (val) => { filterYear = val; }
+      );
+
+      buildDropdown(
+        'dropdown-container-1', 'Dropdown1', 'Dropdown1-option',
+        ['All Quarters', ...quarters],
+        (val) => { filterQuarter = val; }
+      );
+
+      buildDropdown(
+        'dropdown-container-2', 'Dropdown2', 'Dropdown2-option',
+        ['All Categories', ...categories],
+        (val) => { filterCategory = val; }
+      );
+    }
+
+    /* ==========================================================
+       SEARCH
+       ========================================================== */
+    document.querySelector('[data-icon-name="Search"]').innerHTML = SVG.Search;
+
+    document.getElementById('SearchBox3').addEventListener('input', (e) => {
+      filterSearch = e.target.value.trim();
+      render();
+    });
+
+    /* ==========================================================
+       FILTERING
+       ========================================================== */
+    function isFiltered() {
+      return filterYear !== 'All Years'
+          || filterQuarter !== 'All Quarters'
+          || filterCategory !== 'All Categories'
+          || filterSearch !== '';
+    }
+
+    function getFilteredEntries() {
+      return LEADERBOARD_DATA.filter(entry => {
+        if (filterYear !== 'All Years' && entry.year !== parseInt(filterYear, 10)) return false;
+        if (filterQuarter !== 'All Quarters' && entry.quarter !== filterQuarter) return false;
+        if (filterCategory !== 'All Categories' &&
+            !entry.activities.some(a => a.category === filterCategory)) return false;
+        if (filterSearch &&
+            !entry.name.toLowerCase().includes(filterSearch.toLowerCase())) return false;
+        return true;
+      });
+    }
+
+    /* ==========================================================
+       PODIUM RENDERER
+       ========================================================== */
+    function renderPodium(entries) {
+      const podium = document.getElementById('podium');
+
+      if (isFiltered() || entries.length < 3) {
+        podium.classList.add('hidden');
+        return;
+      }
+      podium.classList.remove('hidden');
+
+      const top3 = entries.slice(0, 3);
+      const rankClass = {
+        1: 'podiumRank1_2943a085',
+        2: 'podiumRank2_2943a085',
+        3: 'podiumRank3_2943a085'
+      };
+
+      /* DOM order: rank2, rank1, rank3 — CSS order handles visual position */
+      const domOrder = [top3[1], top3[0], top3[2]];
+
+      podium.innerHTML = domOrder.map(entry => `
+        <div class="podiumColumn_2943a085 ${rankClass[entry.rank]}">
+          <div class="podiumUser_2943a085">
+            <div class="podiumAvatarContainer_2943a085">
+              <div class="podiumAvatar_2943a085" style="background-color: ${entry.avatarColor}">
+                <span>${entry.avatarInitials}</span>
+              </div>
+              <div class="podiumRankBadge_2943a085">${entry.rank}</div>
+            </div>
+            <h3 class="podiumName_2943a085">${entry.name}</h3>
+            <p class="podiumRole_2943a085">${entry.department}</p>
+            <div class="podiumScore_2943a085">
+              <i class="root-275" data-icon-name="FavoriteStarFill" aria-hidden="true">${SVG.FavoriteStarFill}</i>
+              <span>${entry.score}</span>
+            </div>
+          </div>
+          <div class="podiumBlock_2943a085">
+            <div class="podiumBlockTop_2943a085"></div>
+            <span class="podiumRankNumber_2943a085">${entry.rank}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    /* ==========================================================
+       LIST RENDERER
+       ========================================================== */
+    let tooltipCounter = 4;
+
+    function renderList(entries) {
+      const list = document.getElementById('list');
+
+      list.innerHTML = entries.map(entry => {
+        /* Category stats — only show categories with count > 0 */
+        const statsHTML = ['lab', 'reg', 'uni', 'edu']
+          .filter(key => entry.categories[key] > 0)
+          .map(key => {
+            const { icon, tooltip } = STAT_MAP[key];
+            const tid = tooltipCounter++;
+            return `
+              <div class="ms-TooltipHost root-276" role="none">
+                <div class="categoryStat_2943a085">
+                  <i class="categoryStatIcon_2943a085 root-275" data-icon-name="${icon}" aria-hidden="true">${SVG[icon]}</i>
+                  <span class="categoryStatCount_2943a085">${entry.categories[key]}</span>
+                </div>
+                <div hidden id="tooltip${tid}">${tooltip}</div>
+              </div>`;
+          }).join('');
+
+        /* Activity rows for the expanded details panel */
+        const activitiesHTML = entry.activities.map(act => {
+          const badgeClass = BADGE_MAP[act.category] || 'categoryDefault_2943a085';
+          return `
+            <tr>
+              <td class="activityName_2943a085">${act.name}</td>
+              <td><span class="categoryBadge_2943a085 ${badgeClass}">${act.category}</span></td>
+              <td class="activityDate_2943a085">${act.date}</td>
+              <td class="activityPoints_2943a085">+${act.points}</td>
+            </tr>`;
+        }).join('');
+
+        return `
+          <div class="userRowContainer_2943a085" data-id="${entry.id}">
+            <div class="row_2943a085">
+              <div class="rowMain_2943a085">
+                <div class="rowLeft_2943a085">
+                  <span class="rank_2943a085">${entry.rank}</span>
+                  <div class="avatar_2943a085" style="background-color: ${entry.avatarColor}">${entry.avatarInitials}</div>
+                  <div class="info_2943a085">
+                    <h3 class="name_2943a085">${entry.name}</h3>
+                    <span class="role_2943a085">${entry.department}</span>
+                  </div>
+                </div>
+                <div class="rowRight_2943a085">
+                  <div class="categoryStats_2943a085">
+                    ${statsHTML}
+                  </div>
+                  <div class="totalSection_2943a085">
+                    <span class="totalLabel_2943a085">TOTAL</span>
+                    <div class="score_2943a085">
+                      <i class="root-275" data-icon-name="FavoriteStarFill" aria-hidden="true">${SVG.FavoriteStarFill}</i>
+                      <span>${entry.score}</span>
+                    </div>
+                  </div>
+                  <button class="expandButton_2943a085" aria-label="Expand" aria-expanded="false">
+                    <i class="root-275" data-icon-name="ChevronDown" aria-hidden="true">${SVG.ChevronDown}</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="details_2943a085">
+              <h3 class="detailsTitle_2943a085">RECENT ACTIVITY</h3>
+              <div class="tableWrapper_2943a085">
+                <table class="activityTable_2943a085">
+                  <thead>
+                    <tr>
+                      <th>ACTIVITY</th>
+                      <th>CATEGORY</th>
+                      <th>DATE</th>
+                      <th>POINTS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${activitiesHTML}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      /* Attach expand / collapse handlers */
+      list.querySelectorAll('.expandButton_2943a085').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const container = btn.closest('.userRowContainer_2943a085');
+          const expanded  = container.classList.toggle('expanded_2943a085');
+          btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+      });
+    }
+
+    /* ==========================================================
+       MAIN RENDER
+       ========================================================== */
+    function render() {
+      tooltipCounter = 4;
+      const filtered = getFilteredEntries();
+      renderPodium(filtered);
+      renderList(filtered);
+    }
+
+    /* ==========================================================
+       BOOTSTRAP
+       ========================================================== */
+    initDropdowns();
+    render();
+  </script>
+</body>
+</html>

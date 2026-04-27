@@ -9,7 +9,29 @@ const LEADERBOARD_DATA = [
     categories: { lab: 21, reg: 30, uni: 20, edu: 41 },
     department: "Data Engineering",
     year: 2025,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] AI Integration Workshop 2025",          category: "Education",               date: "15-Jan-2025", points: 96 },
+      { name: "[REG] Tech Leadership Summit Keynote",        category: "Public Speaking",          date: "03-Mar-2025", points: 96 },
+      { name: "[UNI] Partnership Program — Polytechnic",     category: "University Partnership",   date: "22-Feb-2025", points: 64 },
+      { name: "[LAB] Mentoring of R. Foster",                category: "Mentoring",                date: "10-Apr-2025", points: 64 },
+      { name: "[EDU] Machine Learning Fundamentals Course",  category: "Education",               date: "28-Nov-2024", points: 64 },
+      { name: "[REG] Cloud Architecture Panel Discussion",   category: "Public Speaking",          date: "05-Oct-2024", points: 64 },
+      { name: "[UNI] Annual Research Collaboration Summit",  category: "University Partnership",   date: "18-Sep-2024", points: 64 },
+      { name: "[LAB] Mentoring of K. Nguyen",                category: "Mentoring",                date: "07-Aug-2024", points: 32 },
+      { name: "[EDU] Data Pipeline Design Workshop",         category: "Education",               date: "14-Jul-2024", points: 32 },
+      { name: "[REG] DevOps Innovation Conference Talk",     category: "Public Speaking",          date: "20-Jun-2024", points: 32 },
+      { name: "[UNI] Lecture Series — Applied Data Science", category: "University Partnership",   date: "11-May-2024", points: 64 },
+      { name: "[LAB] Mentoring of T. Osei",                  category: "Mentoring",                date: "02-Apr-2024", points: 32 },
+      { name: "[EDU] Python Advanced Patterns Bootcamp",     category: "Education",               date: "25-Mar-2024", points: 32 },
+      { name: "[REG] Analytics Leaders Roundtable",          category: "Public Speaking",          date: "14-Feb-2024", points: 32 },
+      { name: "[UNI] Intern Recruitment Collaboration",      category: "University Partnership",   date: "30-Jan-2024", points: 32 },
+      { name: "[LAB] Mentoring of V. Kaur",                  category: "Mentoring",                date: "19-Dec-2023", points: 64 },
+      { name: "[EDU] NLP for Enterprise Applications",       category: "Education",               date: "08-Nov-2023", points: 32 },
+      { name: "[REG] Winter Data Symposium Presentation",    category: "Public Speaking",          date: "27-Oct-2023", points: 32 },
+      { name: "[UNI] Thesis Co-Supervision Program",         category: "University Partnership",   date: "15-Sep-2023", points: 32 },
+      { name: "[LAB] Mentoring of B. Thornton",              category: "Mentoring",                date: "04-Aug-2023", points: 32 }
+    ]
   },
   {
     id: 2,
@@ -21,7 +43,24 @@ const LEADERBOARD_DATA = [
     categories: { lab: 8, reg: 28, uni: 12, edu: 14 },
     department: "ML Research",
     year: 2025,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] Bayesian Methods in Practice",          category: "Education",               date: "20-Jan-2025", points: 64 },
+      { name: "[REG] ML Research Showcase Keynote",          category: "Public Speaking",          date: "08-Mar-2025", points: 64 },
+      { name: "[UNI] Joint Research Initiative Launch",      category: "University Partnership",   date: "17-Feb-2025", points: 64 },
+      { name: "[LAB] Mentoring of C. Barbosa",               category: "Mentoring",                date: "03-Dec-2024", points: 32 },
+      { name: "[EDU] Statistical Modelling Masterclass",     category: "Education",               date: "22-Oct-2024", points: 64 },
+      { name: "[REG] Responsible AI Panel Discussion",       category: "Public Speaking",          date: "11-Sep-2024", points: 32 },
+      { name: "[UNI] University Hackathon Co-Mentoring",     category: "University Partnership",   date: "29-Aug-2024", points: 32 },
+      { name: "[LAB] Mentoring of H. Kowalski",              category: "Mentoring",                date: "15-Jul-2024", points: 32 },
+      { name: "[EDU] Deep Learning for Time Series",         category: "Education",               date: "01-Jun-2024", points: 32 },
+      { name: "[REG] Women in Tech Conference Talk",         category: "Public Speaking",          date: "19-Apr-2024", points: 32 },
+      { name: "[UNI] Curriculum Advisory Board Session",     category: "University Partnership",   date: "07-Mar-2024", points: 64 },
+      { name: "[LAB] Mentoring of E. Tremblay",              category: "Mentoring",                date: "24-Jan-2024", points: 32 },
+      { name: "[EDU] Reinforcement Learning Workshop",       category: "Education",               date: "12-Dec-2023", points: 32 },
+      { name: "[REG] AI Quarterly Review Presentation",      category: "Public Speaking",          date: "30-Oct-2023", points: 32 },
+      { name: "[UNI] Student Project Evaluation Panel",      category: "University Partnership",   date: "18-Sep-2023", points: 32 }
+    ]
   },
   {
     id: 3,
@@ -33,7 +72,23 @@ const LEADERBOARD_DATA = [
     categories: { lab: 10, reg: 20, uni: 14, edu: 20 },
     department: "Product Analytics",
     year: 2024,
-    quarter: "Q4"
+    quarter: "Q4",
+    activities: [
+      { name: "[EDU] Product Analytics Certification",       category: "Education",               date: "25-Jan-2025", points: 64 },
+      { name: "[REG] Data Storytelling Workshop Lead",       category: "Public Speaking",          date: "12-Mar-2025", points: 64 },
+      { name: "[UNI] Analytics Internship Coordination",     category: "University Partnership",   date: "04-Feb-2025", points: 64 },
+      { name: "[LAB] Mentoring of A. Novak",                 category: "Mentoring",                date: "18-Nov-2024", points: 32 },
+      { name: "[EDU] A/B Testing Best Practices Seminar",    category: "Education",               date: "05-Oct-2024", points: 64 },
+      { name: "[REG] Product Metrics Summit Talk",           category: "Public Speaking",          date: "23-Sep-2024", points: 32 },
+      { name: "[UNI] Data Science Capstone Supervision",     category: "University Partnership",   date: "10-Aug-2024", points: 32 },
+      { name: "[LAB] Mentoring of F. Brandt",                category: "Mentoring",                date: "28-Jun-2024", points: 32 },
+      { name: "[EDU] Cohort Analysis Advanced Methods",      category: "Education",               date: "16-May-2024", points: 32 },
+      { name: "[REG] Growth Analytics Panel Moderator",      category: "Public Speaking",          date: "03-Apr-2024", points: 32 },
+      { name: "[UNI] Research Methods Guest Lecture",        category: "University Partnership",   date: "20-Feb-2024", points: 32 },
+      { name: "[LAB] Mentoring of S. Patel",                 category: "Mentoring",                date: "09-Jan-2024", points: 32 },
+      { name: "[EDU] Visualisation with D3.js Workshop",     category: "Education",               date: "27-Nov-2023", points: 32 },
+      { name: "[REG] Quarterly Analytics Briefing",          category: "Public Speaking",          date: "15-Oct-2023", points: 32 }
+    ]
   },
   {
     id: 4,
@@ -45,7 +100,21 @@ const LEADERBOARD_DATA = [
     categories: { lab: 9, reg: 18, uni: 12, edu: 9 },
     department: "Cloud Infrastructure",
     year: 2025,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] Cloud Cost Optimisation Training",      category: "Education",               date: "14-Feb-2025", points: 64 },
+      { name: "[REG] Infrastructure Summit Panel",           category: "Public Speaking",          date: "02-Jan-2025", points: 32 },
+      { name: "[UNI] Cloud Computing Guest Lecture",         category: "University Partnership",   date: "20-Dec-2024", points: 32 },
+      { name: "[LAB] Mentoring of L. Fischer",               category: "Mentoring",                date: "08-Nov-2024", points: 32 },
+      { name: "[EDU] Kubernetes for Scale Workshop",         category: "Education",               date: "27-Sep-2024", points: 32 },
+      { name: "[REG] DevOps Days Conference Talk",           category: "Public Speaking",          date: "15-Aug-2024", points: 32 },
+      { name: "[UNI] Engineering Career Day Participant",    category: "University Partnership",   date: "04-Jul-2024", points: 32 },
+      { name: "[LAB] Mentoring of P. Ivanova",               category: "Mentoring",                date: "22-May-2024", points: 16 },
+      { name: "[EDU] Terraform Advanced Patterns",           category: "Education",               date: "10-Apr-2024", points: 32 },
+      { name: "[REG] Cloud Transformation Webinar",         category: "Public Speaking",          date: "28-Feb-2024", points: 16 },
+      { name: "[UNI] Final Year Project Advisory",           category: "University Partnership",   date: "16-Jan-2024", points: 32 },
+      { name: "[LAB] Mentoring of G. Santos",                category: "Mentoring",                date: "04-Dec-2023", points: 16 }
+    ]
   },
   {
     id: 5,
@@ -57,7 +126,20 @@ const LEADERBOARD_DATA = [
     categories: { lab: 13, reg: 14, uni: 9, edu: 15 },
     department: "Data Engineering",
     year: 2024,
-    quarter: "Q3"
+    quarter: "Q3",
+    activities: [
+      { name: "[EDU] Feature Engineering Techniques",        category: "Education",               date: "30-Jan-2025", points: 64 },
+      { name: "[REG] Analytics Tools Showcase",              category: "Public Speaking",          date: "18-Mar-2025", points: 32 },
+      { name: "[UNI] Data Engineering Curriculum Input",     category: "University Partnership",   date: "06-Feb-2025", points: 32 },
+      { name: "[LAB] Mentoring of D. Chakraborty",           category: "Mentoring",                date: "25-Oct-2024", points: 16 },
+      { name: "[EDU] Spark Performance Tuning Course",       category: "Education",               date: "13-Sep-2024", points: 32 },
+      { name: "[REG] Pipeline Architecture Webinar",         category: "Public Speaking",          date: "01-Aug-2024", points: 32 },
+      { name: "[UNI] Academic Exchange Program Panel",       category: "University Partnership",   date: "20-Jun-2024", points: 32 },
+      { name: "[LAB] Mentoring of O. Lindgren",              category: "Mentoring",                date: "08-May-2024", points: 16 },
+      { name: "[EDU] Stream Processing Workshop",            category: "Education",               date: "26-Mar-2024", points: 32 },
+      { name: "[REG] Data Mesh Overview Presentation",       category: "Public Speaking",          date: "14-Feb-2024", points: 16 },
+      { name: "[UNI] Student Mentoring Evening",             category: "University Partnership",   date: "02-Jan-2024", points: 32 }
+    ]
   },
   {
     id: 6,
@@ -69,7 +151,20 @@ const LEADERBOARD_DATA = [
     categories: { lab: 9, reg: 16, uni: 9, edu: 14 },
     department: "Security Operations",
     year: 2025,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] Threat Modelling Fundamentals",         category: "Education",               date: "22-Feb-2025", points: 64 },
+      { name: "[REG] Cybersecurity Leaders Forum",           category: "Public Speaking",          date: "10-Jan-2025", points: 32 },
+      { name: "[UNI] Security Engineering Guest Lecture",    category: "University Partnership",   date: "29-Nov-2024", points: 32 },
+      { name: "[LAB] Mentoring of N. Ruiz",                  category: "Mentoring",                date: "17-Oct-2024", points: 16 },
+      { name: "[EDU] Zero Trust Architecture Course",        category: "Education",               date: "05-Sep-2024", points: 32 },
+      { name: "[REG] SOC Operations Panel Discussion",       category: "Public Speaking",          date: "24-Jul-2024", points: 32 },
+      { name: "[UNI] Ethical Hacking Workshop Co-Lead",      category: "University Partnership",   date: "12-Jun-2024", points: 32 },
+      { name: "[LAB] Mentoring of M. Vestergaard",           category: "Mentoring",                date: "30-Apr-2024", points: 16 },
+      { name: "[EDU] SIEM Implementation Seminar",           category: "Education",               date: "18-Mar-2024", points: 32 },
+      { name: "[REG] Incident Response Masterclass",         category: "Public Speaking",          date: "06-Feb-2024", points: 16 },
+      { name: "[UNI] Cyber Careers Panel for Students",      category: "University Partnership",   date: "25-Nov-2023", points: 32 }
+    ]
   },
   {
     id: 7,
@@ -81,7 +176,18 @@ const LEADERBOARD_DATA = [
     categories: { lab: 11, reg: 11, uni: 7, edu: 9 },
     department: "ML Research",
     year: 2023,
-    quarter: "Q4"
+    quarter: "Q4",
+    activities: [
+      { name: "[EDU] Generative Models in Practice",         category: "Education",               date: "15-Mar-2025", points: 32 },
+      { name: "[REG] ML Research Roundtable Speaker",        category: "Public Speaking",          date: "01-Feb-2025", points: 32 },
+      { name: "[UNI] Joint PhD Programme Advisory",          category: "University Partnership",   date: "20-Dec-2024", points: 32 },
+      { name: "[LAB] Mentoring of A. Hassan",                category: "Mentoring",                date: "09-Nov-2024", points: 16 },
+      { name: "[EDU] Graph Neural Networks Workshop",        category: "Education",               date: "28-Sep-2024", points: 32 },
+      { name: "[REG] AI Safety Symposium Talk",              category: "Public Speaking",          date: "16-Aug-2024", points: 16 },
+      { name: "[UNI] Research Paper Co-Authorship Prog",     category: "University Partnership",   date: "05-Jul-2024", points: 32 },
+      { name: "[LAB] Mentoring of C. Wójcik",                category: "Mentoring",                date: "23-May-2024", points: 16 },
+      { name: "[EDU] Explainability in ML Certification",    category: "Education",               date: "11-Apr-2024", points: 32 }
+    ]
   },
   {
     id: 8,
@@ -93,7 +199,17 @@ const LEADERBOARD_DATA = [
     categories: { lab: 7, reg: 13, uni: 6, edu: 11 },
     department: "DevOps Platform",
     year: 2024,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] Container Orchestration Training",      category: "Education",               date: "08-Feb-2025", points: 32 },
+      { name: "[REG] Platform Engineering Summit",           category: "Public Speaking",          date: "27-Dec-2024", points: 32 },
+      { name: "[UNI] DevOps Career Day Presentation",        category: "University Partnership",   date: "15-Nov-2024", points: 16 },
+      { name: "[LAB] Mentoring of F. Nakamura",              category: "Mentoring",                date: "03-Oct-2024", points: 16 },
+      { name: "[EDU] GitOps Principles Workshop",            category: "Education",               date: "22-Aug-2024", points: 32 },
+      { name: "[REG] SRE Practices Panel Discussion",        category: "Public Speaking",          date: "10-Jul-2024", points: 16 },
+      { name: "[UNI] CI/CD Pipeline Guest Lecture",          category: "University Partnership",   date: "29-May-2024", points: 32 },
+      { name: "[LAB] Mentoring of T. Adamson",               category: "Mentoring",                date: "17-Apr-2024", points: 16 }
+    ]
   },
   {
     id: 9,
@@ -105,7 +221,17 @@ const LEADERBOARD_DATA = [
     categories: { lab: 10, reg: 8, uni: 8, edu: 10 },
     department: "Product Analytics",
     year: 2025,
-    quarter: "Q3"
+    quarter: "Q3",
+    activities: [
+      { name: "[EDU] Customer Segmentation Techniques",      category: "Education",               date: "19-Jan-2025", points: 32 },
+      { name: "[REG] Product Insights Forum Speaker",        category: "Public Speaking",          date: "07-Mar-2025", points: 32 },
+      { name: "[UNI] Analytics for Business Guest Lecture",  category: "University Partnership",   date: "24-Feb-2025", points: 16 },
+      { name: "[LAB] Mentoring of E. Korhonen",              category: "Mentoring",                date: "13-Dec-2024", points: 16 },
+      { name: "[EDU] Funnel Analysis Advanced Course",       category: "Education",               date: "01-Nov-2024", points: 32 },
+      { name: "[REG] Data-Driven Product Panel",             category: "Public Speaking",          date: "19-Sep-2024", points: 16 },
+      { name: "[UNI] Student Project Consultation",          category: "University Partnership",   date: "07-Aug-2024", points: 32 },
+      { name: "[LAB] Mentoring of R. Melo",                  category: "Mentoring",                date: "26-Jun-2024", points: 16 }
+    ]
   },
   {
     id: 10,
@@ -117,7 +243,16 @@ const LEADERBOARD_DATA = [
     categories: { lab: 7, reg: 10, uni: 6, edu: 13 },
     department: "Data Engineering",
     year: 2024,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] Data Quality Frameworks Course",        category: "Education",               date: "12-Mar-2025", points: 32 },
+      { name: "[REG] Analytics Best Practices Webinar",      category: "Public Speaking",          date: "28-Jan-2025", points: 32 },
+      { name: "[UNI] Data Literacy Programme Input",         category: "University Partnership",   date: "16-Dec-2024", points: 16 },
+      { name: "[LAB] Mentoring of B. Olawale",               category: "Mentoring",                date: "04-Nov-2024", points: 16 },
+      { name: "[EDU] SQL Performance Optimisation",          category: "Education",               date: "23-Sep-2024", points: 32 },
+      { name: "[REG] Engineering Metrics Talk",              category: "Public Speaking",          date: "11-Aug-2024", points: 16 },
+      { name: "[UNI] Research Methods Workshop Assist",      category: "University Partnership",   date: "30-Jun-2024", points: 32 }
+    ]
   },
   {
     id: 11,
@@ -129,7 +264,15 @@ const LEADERBOARD_DATA = [
     categories: { lab: 4, reg: 8, uni: 6, edu: 10 },
     department: "Cloud Infrastructure",
     year: 2023,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] Multi-Cloud Strategy Training",         category: "Education",               date: "05-Feb-2025", points: 32 },
+      { name: "[REG] Cloud Trends Panel 2025",               category: "Public Speaking",          date: "24-Nov-2024", points: 16 },
+      { name: "[UNI] Infrastructure Engineering Lecture",    category: "University Partnership",   date: "12-Oct-2024", points: 32 },
+      { name: "[LAB] Mentoring of Y. Oduya",                 category: "Mentoring",                date: "31-Aug-2024", points: 16 },
+      { name: "[EDU] Networking Fundamentals Seminar",       category: "Education",               date: "18-Jul-2024", points: 16 },
+      { name: "[REG] FinOps Fundamentals Webinar",           category: "Public Speaking",          date: "06-Jun-2024", points: 32 }
+    ]
   },
   {
     id: 12,
@@ -141,7 +284,15 @@ const LEADERBOARD_DATA = [
     categories: { lab: 7, reg: 9, uni: 3, edu: 9 },
     department: "Security Operations",
     year: 2025,
-    quarter: "Q4"
+    quarter: "Q4",
+    activities: [
+      { name: "[EDU] Penetration Testing Bootcamp",          category: "Education",               date: "18-Jan-2025", points: 32 },
+      { name: "[REG] Security Awareness Campaign Lead",      category: "Public Speaking",          date: "06-Mar-2025", points: 16 },
+      { name: "[UNI] Cybersecurity Student Workshop",        category: "University Partnership",   date: "24-Feb-2025", points: 32 },
+      { name: "[LAB] Mentoring of P. Eriksen",               category: "Mentoring",                date: "13-Dec-2024", points: 16 },
+      { name: "[EDU] Cloud Security Certification Prep",     category: "Education",               date: "01-Nov-2024", points: 32 },
+      { name: "[REG] Digital Identity Panel Discussion",     category: "Public Speaking",          date: "19-Sep-2024", points: 16 }
+    ]
   },
   {
     id: 13,
@@ -153,7 +304,15 @@ const LEADERBOARD_DATA = [
     categories: { lab: 4, reg: 9, uni: 4, edu: 8 },
     department: "ML Research",
     year: 2024,
-    quarter: "Q3"
+    quarter: "Q3",
+    activities: [
+      { name: "[EDU] Time Series Analysis Workshop",         category: "Education",               date: "09-Feb-2025", points: 32 },
+      { name: "[REG] Research Methods Symposium",            category: "Public Speaking",          date: "28-Dec-2024", points: 16 },
+      { name: "[UNI] Machine Learning Study Group",          category: "University Partnership",   date: "16-Nov-2024", points: 16 },
+      { name: "[LAB] Mentoring of A. Rossi",                 category: "Mentoring",                date: "04-Oct-2024", points: 16 },
+      { name: "[EDU] Causal Inference Training",             category: "Education",               date: "22-Aug-2024", points: 32 },
+      { name: "[REG] Data Science Webinar Series",           category: "Public Speaking",          date: "10-Jul-2024", points: 16 }
+    ]
   },
   {
     id: 14,
@@ -165,7 +324,14 @@ const LEADERBOARD_DATA = [
     categories: { lab: 3, reg: 7, uni: 6, edu: 5 },
     department: "DevOps Platform",
     year: 2023,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] Infrastructure as Code Training",       category: "Education",               date: "23-Jan-2025", points: 32 },
+      { name: "[REG] DevOps Best Practices Webinar",         category: "Public Speaking",          date: "11-Mar-2025", points: 16 },
+      { name: "[UNI] Platform Engineering Guest Lecture",    category: "University Partnership",   date: "29-Jan-2025", points: 16 },
+      { name: "[LAB] Mentoring of J. Kristiansen",           category: "Mentoring",                date: "18-Nov-2024", points: 16 },
+      { name: "[EDU] Observability Tools Workshop",          category: "Education",               date: "06-Oct-2024", points: 32 }
+    ]
   },
   {
     id: 15,
@@ -177,7 +343,14 @@ const LEADERBOARD_DATA = [
     categories: { lab: 4, reg: 8, uni: 3, edu: 7 },
     department: "Product Analytics",
     year: 2025,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] Statistical Methods for PMs",           category: "Education",               date: "16-Feb-2025", points: 32 },
+      { name: "[REG] Product Analytics Talk",                category: "Public Speaking",          date: "04-Jan-2025", points: 16 },
+      { name: "[UNI] Analytics in Product Dev Lecture",      category: "University Partnership",   date: "22-Dec-2024", points: 16 },
+      { name: "[LAB] Mentoring of L. Marques",               category: "Mentoring",                date: "10-Nov-2024", points: 16 },
+      { name: "[EDU] KPI Framework Design Training",         category: "Education",               date: "28-Sep-2024", points: 32 }
+    ]
   },
   {
     id: 16,
@@ -189,7 +362,13 @@ const LEADERBOARD_DATA = [
     categories: { lab: 7, reg: 5, uni: 3, edu: 5 },
     department: "Data Engineering",
     year: 2024,
-    quarter: "Q4"
+    quarter: "Q4",
+    activities: [
+      { name: "[EDU] Data Warehousing Principles",           category: "Education",               date: "07-Mar-2025", points: 16 },
+      { name: "[REG] Analytics Community Meetup Talk",       category: "Public Speaking",          date: "24-Jan-2025", points: 16 },
+      { name: "[LAB] Mentoring of M. Bergmann",              category: "Mentoring",                date: "12-Dec-2024", points: 16 },
+      { name: "[EDU] ETL Pipeline Best Practices",           category: "Education",               date: "30-Oct-2024", points: 32 }
+    ]
   },
   {
     id: 17,
@@ -201,7 +380,13 @@ const LEADERBOARD_DATA = [
     categories: { lab: 6, reg: 5, uni: 3, edu: 5 },
     department: "Cloud Infrastructure",
     year: 2023,
-    quarter: "Q3"
+    quarter: "Q3",
+    activities: [
+      { name: "[EDU] Microservices Design Patterns",         category: "Education",               date: "20-Feb-2025", points: 16 },
+      { name: "[REG] Cloud Architecture Presentation",       category: "Public Speaking",          date: "08-Jan-2025", points: 16 },
+      { name: "[UNI] Systems Design Guest Lecture",          category: "University Partnership",   date: "27-Nov-2024", points: 16 },
+      { name: "[LAB] Mentoring of F. Sorensen",              category: "Mentoring",                date: "15-Oct-2024", points: 32 }
+    ]
   },
   {
     id: 18,
@@ -213,7 +398,13 @@ const LEADERBOARD_DATA = [
     categories: { lab: 6, reg: 4, uni: 3, edu: 5 },
     department: "Security Operations",
     year: 2025,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] Identity Management Course",            category: "Education",               date: "14-Mar-2025", points: 16 },
+      { name: "[REG] Privacy Engineering Talk",              category: "Public Speaking",          date: "01-Feb-2025", points: 16 },
+      { name: "[UNI] Security Policy Guest Lecture",         category: "University Partnership",   date: "20-Dec-2024", points: 16 },
+      { name: "[LAB] Mentoring of C. Nyström",               category: "Mentoring",                date: "08-Nov-2024", points: 32 }
+    ]
   },
   {
     id: 19,
@@ -225,7 +416,12 @@ const LEADERBOARD_DATA = [
     categories: { lab: 4, reg: 4, uni: 3, edu: 5 },
     department: "ML Research",
     year: 2024,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] NLP Applications Workshop",             category: "Education",               date: "11-Feb-2025", points: 16 },
+      { name: "[REG] AI Ethics Panel Participant",           category: "Public Speaking",          date: "30-Dec-2024", points: 16 },
+      { name: "[UNI] Thesis Support Programme",              category: "University Partnership",   date: "18-Nov-2024", points: 32 }
+    ]
   },
   {
     id: 20,
@@ -237,7 +433,12 @@ const LEADERBOARD_DATA = [
     categories: { lab: 4, reg: 3, uni: 3, edu: 5 },
     department: "DevOps Platform",
     year: 2023,
-    quarter: "Q4"
+    quarter: "Q4",
+    activities: [
+      { name: "[EDU] Deployment Automation Training",        category: "Education",               date: "03-Mar-2025", points: 16 },
+      { name: "[REG] DevOps Community Talk",                 category: "Public Speaking",          date: "20-Jan-2025", points: 16 },
+      { name: "[LAB] Mentoring of B. Acosta",                category: "Mentoring",                date: "09-Dec-2024", points: 32 }
+    ]
   },
   {
     id: 21,
@@ -249,7 +450,12 @@ const LEADERBOARD_DATA = [
     categories: { lab: 3, reg: 4, uni: 2, edu: 5 },
     department: "Product Analytics",
     year: 2025,
-    quarter: "Q3"
+    quarter: "Q3",
+    activities: [
+      { name: "[EDU] Funnel Metrics Workshop",               category: "Education",               date: "25-Feb-2025", points: 16 },
+      { name: "[REG] Analytics Showcase Presenter",          category: "Public Speaking",          date: "13-Jan-2025", points: 16 },
+      { name: "[UNI] Business Analytics Intro Lecture",      category: "University Partnership",   date: "01-Dec-2024", points: 16 }
+    ]
   },
   {
     id: 22,
@@ -261,7 +467,12 @@ const LEADERBOARD_DATA = [
     categories: { lab: 3, reg: 3, uni: 2, edu: 5 },
     department: "Data Engineering",
     year: 2024,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] Data Governance Basics",                category: "Education",               date: "17-Feb-2025", points: 16 },
+      { name: "[LAB] Mentoring of T. Haugen",                category: "Mentoring",                date: "05-Jan-2025", points: 16 },
+      { name: "[REG] Data Quality Meetup Talk",              category: "Public Speaking",          date: "24-Nov-2024", points: 16 }
+    ]
   },
   {
     id: 23,
@@ -273,7 +484,11 @@ const LEADERBOARD_DATA = [
     categories: { lab: 3, reg: 3, uni: 2, edu: 4 },
     department: "Cloud Infrastructure",
     year: 2023,
-    quarter: "Q2"
+    quarter: "Q2",
+    activities: [
+      { name: "[EDU] Networking Concepts Refresher",         category: "Education",               date: "10-Mar-2025", points: 16 },
+      { name: "[REG] Tech Team Lunch & Learn",               category: "Public Speaking",          date: "28-Jan-2025", points: 8  }
+    ]
   },
   {
     id: 24,
@@ -285,7 +500,11 @@ const LEADERBOARD_DATA = [
     categories: { lab: 2, reg: 3, uni: 2, edu: 4 },
     department: "Security Operations",
     year: 2024,
-    quarter: "Q3"
+    quarter: "Q3",
+    activities: [
+      { name: "[EDU] Vulnerability Assessment Basics",       category: "Education",               date: "22-Feb-2025", points: 8  },
+      { name: "[REG] Security Awareness Brown Bag",          category: "Public Speaking",          date: "10-Jan-2025", points: 16 }
+    ]
   },
   {
     id: 25,
@@ -297,6 +516,10 @@ const LEADERBOARD_DATA = [
     categories: { lab: 2, reg: 2, uni: 2, edu: 5 },
     department: "ML Research",
     year: 2023,
-    quarter: "Q1"
+    quarter: "Q1",
+    activities: [
+      { name: "[EDU] Research Methodology Seminar",          category: "Education",               date: "18-Mar-2025", points: 8  },
+      { name: "[LAB] Mentoring of G. Magnusson",             category: "Mentoring",                date: "05-Feb-2025", points: 16 }
+    ]
   }
 ];

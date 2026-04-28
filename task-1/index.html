@@ -312,17 +312,19 @@
     .tableWrapper_2943a085 { overflow-x: auto; }
     .activityTable_2943a085 { border-collapse: collapse; width: 100%; }
     .activityTable_2943a085 thead tr { border-bottom: 2px solid rgb(226, 232, 240); }
-    .activityTable_2943a085 thead th { color: rgb(100, 116, 139); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; padding: 12px 8px; text-align: left; text-transform: uppercase; }
+    .activityTable_2943a085 thead th { color: rgb(100, 116, 139); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; padding: 12px 8px; text-align: left; text-transform: uppercase; white-space: nowrap; }
+    .activityTable_2943a085 thead th:first-child { width: 100%; }
     .activityTable_2943a085 thead th:last-child { text-align: right; }
     .activityTable_2943a085 tbody tr { transition: background-color 0.2s; }
     .activityTable_2943a085 tbody tr:hover { background: rgb(241, 245, 249); }
-    .activityTable_2943a085 tbody td { border-bottom: 1px solid rgb(226, 232, 240); font-size: 14px; padding: 16px 8px; }
+    .activityTable_2943a085 tbody td { border-bottom: 1px solid rgb(226, 232, 240); font-size: 14px; padding: 16px 8px; white-space: nowrap; }
+    .activityTable_2943a085 tbody td:first-child { white-space: normal; width: 100%; }
     .activityTable_2943a085 tbody tr:last-child td { border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; }
     .activityName_2943a085 { color: rgb(30, 41, 59); font-weight: 600; }
     .categoryBadge_2943a085 { align-items: center; border-radius: 12px; display: inline-flex; font-size: 12px; font-weight: 600; padding: 4px 12px; }
-    .categoryBadge_2943a085.categoryTraining_2943a085 { background: rgb(219, 234, 254); color: rgb(30, 64, 175); }
-    .categoryBadge_2943a085.categoryContribution_2943a085 { background: rgb(243, 232, 255); color: rgb(107, 33, 168); }
-    .categoryBadge_2943a085.categoryCommunity_2943a085 { background: rgb(220, 252, 231); color: rgb(22, 101, 52); }
+    .categoryBadge_2943a085.categoryTraining_2943a085,
+    .categoryBadge_2943a085.categoryContribution_2943a085,
+    .categoryBadge_2943a085.categoryCommunity_2943a085,
     .categoryBadge_2943a085.categoryDefault_2943a085 { background: rgb(226, 232, 240); color: rgb(71, 85, 105); }
     .activityDate_2943a085 { color: rgb(100, 116, 139); }
     .activityPoints_2943a085 { color: rgb(14, 165, 233); font-weight: 700; text-align: right; }

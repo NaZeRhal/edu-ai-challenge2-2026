@@ -367,14 +367,10 @@
        ===================================================== */
     .actionsWrapper-122.actionsWrapper-122.actionsWrapper-122.actionsWrapper-122.actionsWrapper-122 .ms-TooltipHost { display: inline-flex; }
 
-    /* Category icon tooltip */
-    .ms-TooltipHost { position: relative; }
-    .ms-TooltipHost .callout-tooltip {
+    /* Category icon tooltip — rendered to body to escape overflow:hidden rows */
+    #global-tooltip {
       display: none;
-      position: absolute;
-      bottom: calc(100% + 9px);
-      left: 50%;
-      transform: translateX(-50%);
+      position: fixed;
       background: rgb(255, 255, 255);
       border: 1px solid rgb(200, 198, 196);
       border-radius: 2px;
@@ -384,10 +380,11 @@
       font-size: 14px;
       font-weight: 400;
       color: rgb(50, 49, 48);
-      z-index: 1000;
+      z-index: 9999;
       pointer-events: none;
+      transform: translateX(-50%);
     }
-    .ms-TooltipHost .callout-tooltip::before {
+    #global-tooltip::before {
       content: '';
       position: absolute;
       top: 100%;
@@ -396,7 +393,7 @@
       border: 7px solid transparent;
       border-top-color: rgb(200, 198, 196);
     }
-    .ms-TooltipHost .callout-tooltip::after {
+    #global-tooltip::after {
       content: '';
       position: absolute;
       top: 100%;
@@ -406,7 +403,6 @@
       border: 6px solid transparent;
       border-top-color: rgb(255, 255, 255);
     }
-    .ms-TooltipHost:hover .callout-tooltip { display: block; }
     .dropdown-256:hover .ms-Dropdown-title { color: rgb(21, 21, 21); border-color: rgb(0, 0, 0); }
     @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
       .dropdown-256:hover .ms-Dropdown-title { border-color: highlight; }
@@ -768,6 +764,8 @@
   </style>
 </head>
 <body>
+
+  <div id="global-tooltip" role="tooltip"></div>
 
   <!-- PAGE WRAPPER -->
   <div class="page-wrapper">
@@ -1464,12 +1462,11 @@
           .map(({ icon, tooltip, count }) => {
             const tid = tooltipCounter++;
             return `
-              <div class="ms-TooltipHost root-276" role="none">
+              <div class="ms-TooltipHost root-276" role="none" data-tooltip="${tooltip}">
                 <div class="categoryStat_2943a085">
                   <i class="categoryStatIcon_2943a085 root-275" data-icon-name="${icon}" aria-hidden="true">${SVG[icon]}</i>
                   <span class="categoryStatCount_2943a085">${count}</span>
                 </div>
-                <div class="callout-tooltip">${tooltip}</div>
               </div>`;
           }).join('');
 
@@ -1554,6 +1551,30 @@
       renderPodium(filtered);
       renderList(filtered);
     }
+
+    /* ==========================================================
+       GLOBAL TOOLTIP
+       ========================================================== */
+    (function () {
+      const tip = document.getElementById('global-tooltip');
+      const GAP = 9;
+
+      document.addEventListener('mouseover', function (e) {
+        const host = e.target.closest('.ms-TooltipHost[data-tooltip]');
+        if (!host) return;
+        tip.textContent = host.dataset.tooltip;
+        tip.style.display = 'block';
+        const r = host.getBoundingClientRect();
+        tip.style.left = (r.left + r.width / 2) + 'px';
+        tip.style.top  = (r.top - tip.offsetHeight - GAP) + 'px';
+      });
+
+      document.addEventListener('mouseout', function (e) {
+        const host = e.target.closest('.ms-TooltipHost[data-tooltip]');
+        if (!host) return;
+        if (!host.contains(e.relatedTarget)) tip.style.display = 'none';
+      });
+    }());
 
     /* ==========================================================
        BOOTSTRAP

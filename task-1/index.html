@@ -395,6 +395,104 @@
     .searchBoxContainer_ea51e5aa_e52d7d03 .dropdownContainer_ea51e5aa_e52d7d03 .ms-Dropdown-title_e52d7d03 { border: 0px; }
 
 
+    /* =====================================================
+       DROPDOWN & SEARCHBOX COMPONENT STYLES
+       ===================================================== */
+    .ms-Dropdown-container {
+      position: relative;
+    }
+
+    .ms-Dropdown {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      font-family: var(--font-family);
+      font-size: 14px;
+      height: 32px;
+      justify-content: space-between;
+      outline: none;
+      padding: 0 8px;
+      position: relative;
+      user-select: none;
+    }
+
+    .ms-Dropdown-items-wrapper {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+      left: 0;
+      max-height: 200px;
+      min-width: 100%;
+      overflow-y: auto;
+      position: absolute;
+      top: calc(100% + 4px);
+      z-index: 200;
+    }
+
+    .ms-Dropdown-container.open .ms-Dropdown-items-wrapper {
+      display: block;
+    }
+
+    .ms-Dropdown-item {
+      color: #0f172a;
+      cursor: pointer;
+      font-family: var(--font-family);
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+
+    .ms-Dropdown-item:hover {
+      background: #f1f5f9;
+    }
+
+    .ms-Dropdown-item.selected {
+      background: #e0f2fe;
+      color: #0ea5e9;
+      font-weight: 600;
+    }
+
+    #dropdown-container-0 .ms-Dropdown,
+    #dropdown-container-1 .ms-Dropdown { width: 120px; }
+    #dropdown-container-2 .ms-Dropdown { width: 150px; }
+
+    .ms-SearchBox {
+      align-items: center;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      display: flex;
+      height: 32px;
+      padding: 0 8px;
+      width: 100%;
+    }
+
+    .ms-SearchBox:focus-within { border-color: #0ea5e9; }
+
+    .ms-SearchBox-iconContainer {
+      align-items: center;
+      color: #64748b;
+      display: flex;
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+
+    .ms-SearchBox-field {
+      background: transparent;
+      border: none;
+      color: #0f172a;
+      flex: 1;
+      font-family: var(--font-family);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .ms-SearchBox-field::placeholder { color: #94a3b8; }
+
     /* Fluent UI helper classes */
     .root-275,
     .root-276 {

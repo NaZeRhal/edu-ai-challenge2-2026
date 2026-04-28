@@ -176,7 +176,7 @@
     }
 
     body {
-      background: #e5e7eb;
+      background: rgb(243, 242, 241);
       font-family: var(--font-family);
       margin: 0;
       padding: 0;
@@ -185,7 +185,7 @@
     /* =====================================================
        COMPONENT STYLES — extracted verbatim from live page
        ===================================================== */
-    .leaderboard_2943a085 { background: rgb(248, 250, 252); color: rgb(15, 23, 42); font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; min-height: 100vh; padding: 24px; transition: background-color 0.3s, color 0.3s; }
+    .leaderboard_2943a085 { background: transparent; color: rgb(15, 23, 42); font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; min-height: 100vh; padding: 24px; transition: background-color 0.3s, color 0.3s; }
     .leaderboard_2943a085.loading_2943a085 { opacity: 0.6; pointer-events: none; }
     .header_2943a085 { align-items: flex-start; display: flex; justify-content: space-between; margin: 0px auto 32px; max-width: 1200px; }
     .header_2943a085 .headerContent_2943a085 { flex: 1 1 0%; }
@@ -510,37 +510,76 @@
       padding: 24px;
     }
 
+    /* BREADCRUMB — exact values from DevTools extraction */
     .breadcrumb {
-      color: #64748b;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      height: 40px;
+      padding: 0;
+      margin: 0;
+      color: rgb(0, 0, 0);
       font-family: var(--font-family);
       font-size: 14px;
-      margin-bottom: 12px;
+      font-weight: 400;
+      list-style: none;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      height: 40px;
     }
 
     .breadcrumb a {
-      color: rgb(0,0,0);
+      display: inline-block;
+      padding: 0 4px 0 0;
+      border: 1px solid rgba(0, 0, 0, 0);
+      border-radius: 2px;
+      color: rgb(0, 0, 0);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 19.6px;
       text-decoration: underline;
+      background: transparent;
+      cursor: pointer;
     }
 
     .breadcrumb a:hover {
-      color: #0ea5e9;
-      text-decoration: underline;
+      color: rgb(0, 0, 0);
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
-    .breadcrumb .sep {
-      margin: 0 6px;
-    }
-
-    .breadcrumb span:last-child {
+    .breadcrumb .breadcrumb-current {
+      display: inline-block;
+      padding: 0 4px;
+      border: 1px solid rgba(0, 0, 0, 0);
+      border-radius: 2px;
+      color: rgb(0, 0, 0);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 19.6px;
       text-decoration: none;
     }
 
+    .breadcrumb .sep {
+      display: inline-flex;
+      align-items: center;
+      height: 40px;
+      color: rgb(0, 0, 0);
+      font-size: 14px;
+      font-weight: 400;
+      padding: 0 2px;
+    }
+
+    /* PAGE H1 */
     .page-title {
-      color: #0f172a;
+      color: rgb(0, 0, 0);
       font-family: var(--font-family);
-      font-size: 36px;
-      font-weight: 800;
-      margin: 0 0 32px;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 20px;
     }
 
     /* =====================================================
@@ -612,13 +651,19 @@
 
   <!-- PAGE WRAPPER -->
   <div class="page-wrapper">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="#">Home</a>
-      <span class="sep" aria-hidden="true"> / </span>
-      <a href="#">EDU</a>
-      <span class="sep" aria-hidden="true"> / </span>
-      <span>Company Leader Board 2025</span>
-    </nav>
+    <ul class="breadcrumb" aria-label="Breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#">Home</a>
+        <span class="sep" aria-hidden="true">/</span>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="#">EDU</a>
+        <span class="sep" aria-hidden="true">/</span>
+      </li>
+      <li class="breadcrumb-item">
+        <span class="breadcrumb-current" aria-current="page">Company Leader Board 2025</span>
+      </li>
+    </ul>
     <h1 class="page-title">Company Leader Board 2025</h1>
 
     <!-- LEADERBOARD SECTION -->

@@ -176,7 +176,7 @@
     }
 
     body {
-      background: rgb(243, 242, 241);
+      background: rgb(235, 235, 237);
       font-family: var(--font-family);
       margin: 0;
       padding: 0;
@@ -396,102 +396,186 @@
 
 
     /* =====================================================
-       DROPDOWN & SEARCHBOX COMPONENT STYLES
+       DROPDOWN & SEARCHBOX — exact values from DevTools
        ===================================================== */
+
+    /* Dropdown container — block, relative, exact width */
     .ms-Dropdown-container {
+      display: block;
       position: relative;
+      width: 120px;
+      height: 32px;
+      box-sizing: border-box;
     }
 
+    #dropdown-container-2 {
+      width: 150px;
+    }
+
+    /* Dropdown trigger — block, no border itself */
     .ms-Dropdown {
-      align-items: center;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 32px;
+      box-sizing: border-box;
       cursor: pointer;
-      display: flex;
       font-family: var(--font-family);
       font-size: 14px;
-      height: 32px;
-      justify-content: space-between;
+      color: rgb(0, 0, 0);
+      background: transparent;
+      border: none;
       outline: none;
-      padding: 0 8px;
-      position: relative;
       user-select: none;
     }
 
-    .ms-Dropdown-items-wrapper {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: none;
-      left: 0;
-      max-height: 200px;
-      min-width: 100%;
-      overflow-y: auto;
+    /* Title span — this is the visible box */
+    .ms-Dropdown-title {
+      display: block;
+      width: 100%;
+      height: 32px;
+      padding: 0 28px 0 8px;
+      background-color: rgb(235, 235, 237);
+      border: 1px solid rgb(55, 55, 55);
+      border-radius: 2px;
+      color: rgb(0, 0, 0);
+      font-family: var(--font-family);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    /* Caret wrapper — absolute inside dropdown */
+    .ms-Dropdown-caretDownWrapper {
+      display: block;
       position: absolute;
-      top: calc(100% + 4px);
+      right: 8px;
+      top: 1px;
+      width: 12px;
+      height: 32px;
+      line-height: 30px;
+      color: rgb(55, 55, 55);
+      pointer-events: none;
+      cursor: pointer;
+    }
+
+    .ms-Dropdown-caretDown {
+      display: inline-block;
+      width: 12px;
+      height: 30px;
+      color: rgb(55, 55, 55);
+      font-size: 12px;
+      line-height: 30px;
+    }
+
+    /* Dropdown listbox */
+    .ms-Dropdown-items-wrapper {
+      display: none;
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      min-width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      background: rgb(255, 255, 255);
+      border: 1px solid rgb(55, 55, 55);
+      border-radius: 2px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
       z-index: 200;
+      box-sizing: border-box;
     }
 
     .ms-Dropdown-container.open .ms-Dropdown-items-wrapper {
       display: block;
     }
 
+    /* Dropdown item — from DevTools: bg rgb(234,234,234), color rgb(21,21,21), padding 0 8px */
     .ms-Dropdown-item {
-      color: #0f172a;
-      cursor: pointer;
+      display: block;
+      padding: 0 8px;
+      height: 36px;
+      line-height: 36px;
+      color: rgb(21, 21, 21);
+      background: rgb(234, 234, 234);
       font-family: var(--font-family);
       font-size: 14px;
-      padding: 8px 12px;
+      font-weight: 400;
+      cursor: pointer;
+      white-space: nowrap;
+      box-sizing: border-box;
     }
 
     .ms-Dropdown-item:hover {
-      background: #f1f5f9;
+      background: rgb(210, 210, 210);
+      color: rgb(0, 0, 0);
     }
 
     .ms-Dropdown-item.selected {
-      background: #e0f2fe;
-      color: #0ea5e9;
+      background: rgb(0, 120, 212);
+      color: rgb(255, 255, 255);
       font-weight: 600;
     }
 
-    #dropdown-container-0 .ms-Dropdown,
-    #dropdown-container-1 .ms-Dropdown { width: 120px; }
-    #dropdown-container-2 .ms-Dropdown { width: 150px; }
-
+    /* Search box — exact from DevTools */
     .ms-SearchBox {
-      align-items: center;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 4px;
       display: flex;
-      height: 32px;
-      padding: 0 8px;
+      flex-direction: row;
+      align-items: stretch;
       width: 100%;
-    }
-
-    .ms-SearchBox:focus-within { border-color: #0ea5e9; }
-
-    .ms-SearchBox-iconContainer {
-      align-items: center;
-      color: #64748b;
-      display: flex;
-      flex-shrink: 0;
-      margin-right: 8px;
-    }
-
-    .ms-SearchBox-field {
-      background: transparent;
-      border: none;
-      color: #0f172a;
-      flex: 1;
+      height: 32px;
+      padding: 1px 0 1px 4px;
+      background-color: rgb(235, 235, 237);
+      border: 1px solid rgb(55, 55, 55);
+      border-radius: 2px;
+      box-sizing: border-box;
       font-family: var(--font-family);
       font-size: 14px;
-      outline: none;
+      color: rgb(0, 0, 0);
     }
 
-    .ms-SearchBox-field::placeholder { color: #94a3b8; }
+    .ms-SearchBox:focus-within {
+      border-color: rgb(0, 120, 212);
+      outline: 1px solid rgb(0, 120, 212);
+    }
+
+    /* Search icon container */
+    .ms-SearchBox-iconContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: 32px;
+      height: 28px;
+      color: rgb(41, 41, 43);
+      font-size: 16px;
+      cursor: text;
+      transition: width 0.167s;
+    }
+
+    /* Search input */
+    .ms-SearchBox-field {
+      flex: 1 1 0;
+      height: 28px;
+      padding: 0 0 0.5px 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: rgb(0, 0, 0);
+      font-family: var(--font-family);
+      font-size: 14px;
+      font-weight: 400;
+      cursor: text;
+      box-sizing: border-box;
+    }
+
+    .ms-SearchBox-field::placeholder {
+      color: rgb(96, 94, 92);
+    }
 
     /* Fluent UI helper classes */
     .root-275,
@@ -510,76 +594,37 @@
       padding: 24px;
     }
 
-    /* BREADCRUMB — exact values from DevTools extraction */
     .breadcrumb {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      height: 40px;
-      padding: 0;
-      margin: 0;
-      color: rgb(0, 0, 0);
+      color: #64748b;
       font-family: var(--font-family);
       font-size: 14px;
-      font-weight: 400;
-      list-style: none;
-    }
-
-    .breadcrumb-item {
-      display: flex;
-      align-items: center;
-      height: 40px;
+      margin-bottom: 12px;
     }
 
     .breadcrumb a {
-      display: inline-block;
-      padding: 0 4px 0 0;
-      border: 1px solid rgba(0, 0, 0, 0);
-      border-radius: 2px;
-      color: rgb(0, 0, 0);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 19.6px;
+      color: rgb(0,0,0);
       text-decoration: underline;
-      background: transparent;
-      cursor: pointer;
     }
 
     .breadcrumb a:hover {
-      color: rgb(0, 0, 0);
-      border-color: rgba(0, 0, 0, 0.1);
-    }
-
-    .breadcrumb .breadcrumb-current {
-      display: inline-block;
-      padding: 0 4px;
-      border: 1px solid rgba(0, 0, 0, 0);
-      border-radius: 2px;
-      color: rgb(0, 0, 0);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 19.6px;
-      text-decoration: none;
+      color: #0ea5e9;
+      text-decoration: underline;
     }
 
     .breadcrumb .sep {
-      display: inline-flex;
-      align-items: center;
-      height: 40px;
-      color: rgb(0, 0, 0);
-      font-size: 14px;
-      font-weight: 400;
-      padding: 0 2px;
+      margin: 0 6px;
     }
 
-    /* PAGE H1 */
+    .breadcrumb span:last-child {
+      text-decoration: none;
+    }
+
     .page-title {
-      color: rgb(0, 0, 0);
+      color: #0f172a;
       font-family: var(--font-family);
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin: 0 0 20px;
+      font-size: 36px;
+      font-weight: 800;
+      margin: 0 0 32px;
     }
 
     /* =====================================================
@@ -651,19 +696,13 @@
 
   <!-- PAGE WRAPPER -->
   <div class="page-wrapper">
-    <ul class="breadcrumb" aria-label="Breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="#">Home</a>
-        <span class="sep" aria-hidden="true">/</span>
-      </li>
-      <li class="breadcrumb-item">
-        <a href="#">EDU</a>
-        <span class="sep" aria-hidden="true">/</span>
-      </li>
-      <li class="breadcrumb-item">
-        <span class="breadcrumb-current" aria-current="page">Company Leader Board 2025</span>
-      </li>
-    </ul>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="#">Home</a>
+      <span class="sep" aria-hidden="true"> / </span>
+      <a href="#">EDU</a>
+      <span class="sep" aria-hidden="true"> / </span>
+      <span>Company Leader Board 2025</span>
+    </nav>
     <h1 class="page-title">Company Leader Board 2025</h1>
 
     <!-- LEADERBOARD SECTION -->

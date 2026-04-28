@@ -366,6 +366,47 @@
        FLUENT UI — extracted verbatim from live page
        ===================================================== */
     .actionsWrapper-122.actionsWrapper-122.actionsWrapper-122.actionsWrapper-122.actionsWrapper-122 .ms-TooltipHost { display: inline-flex; }
+
+    /* Category icon tooltip */
+    .ms-TooltipHost { position: relative; }
+    .ms-TooltipHost .callout-tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 9px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgb(255, 255, 255);
+      border: 1px solid rgb(200, 198, 196);
+      border-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.133) 0px 3.2px 7.2px, rgba(0, 0, 0, 0.11) 0px 0.6px 1.8px;
+      padding: 8px 12px;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgb(50, 49, 48);
+      z-index: 1000;
+      pointer-events: none;
+    }
+    .ms-TooltipHost .callout-tooltip::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: rgb(200, 198, 196);
+    }
+    .ms-TooltipHost .callout-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: -1px;
+      border: 6px solid transparent;
+      border-top-color: rgb(255, 255, 255);
+    }
+    .ms-TooltipHost:hover .callout-tooltip { display: block; }
     .dropdown-256:hover .ms-Dropdown-title { color: rgb(21, 21, 21); border-color: rgb(0, 0, 0); }
     @media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
       .dropdown-256:hover .ms-Dropdown-title { border-color: highlight; }
@@ -1210,10 +1251,10 @@
        edu  → Mentoring icon
        ========================================================== */
     const STAT_MAP = {
-      lab: { icon: 'Education',    category: 'Mentoring',             tooltip: 'Mentoring activities' },
-      reg: { icon: 'Presentation', category: 'Public Speaking',       tooltip: 'Public Speaking events' },
-      uni: { icon: 'University',   category: 'University Partnership', tooltip: 'University Partnerships' },
-      edu: { icon: 'Mentoring',    category: 'Education',             tooltip: 'Education sessions' }
+      lab: { icon: 'Education',    category: 'Mentoring',             tooltip: 'Mentoring' },
+      reg: { icon: 'Presentation', category: 'Public Speaking',       tooltip: 'Public Speaking' },
+      uni: { icon: 'University',   category: 'University Partnership', tooltip: 'University Partnership' },
+      edu: { icon: 'Mentoring',    category: 'Education',             tooltip: 'Education' }
     };
 
     /* Activity category → badge class */
@@ -1428,7 +1469,7 @@
                   <i class="categoryStatIcon_2943a085 root-275" data-icon-name="${icon}" aria-hidden="true">${SVG[icon]}</i>
                   <span class="categoryStatCount_2943a085">${count}</span>
                 </div>
-                <div hidden id="tooltip${tid}">${tooltip}</div>
+                <div class="callout-tooltip">${tooltip}</div>
               </div>`;
           }).join('');
 

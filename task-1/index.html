@@ -476,15 +476,14 @@
     .ms-Dropdown-items-wrapper {
       display: none;
       position: absolute;
-      top: calc(100% + 2px);
+      top: 100%;
       left: 0;
-      min-width: 100%;
-      max-height: 200px;
-      overflow-y: auto;
-      background: rgb(255, 255, 255);
-      border: 1px solid rgb(55, 55, 55);
-      border-radius: 2px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.14);
+      width: 100%;
+      max-height: none;
+      overflow: visible;
+      background: rgb(234, 234, 234);
+      border: none;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
       z-index: 200;
       box-sizing: border-box;
     }
@@ -493,12 +492,12 @@
       display: block;
     }
 
-    /* Dropdown item — from DevTools: bg rgb(234,234,234), color rgb(21,21,21), padding 0 8px */
+    /* Dropdown item — grey bg, white on hover, text ellipsis */
     .ms-Dropdown-item {
       display: block;
       padding: 0 8px;
-      height: 36px;
-      line-height: 36px;
+      height: 40px;
+      line-height: 40px;
       color: rgb(21, 21, 21);
       background: rgb(234, 234, 234);
       font-family: var(--font-family);
@@ -506,11 +505,13 @@
       font-weight: 400;
       cursor: pointer;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       box-sizing: border-box;
     }
 
     .ms-Dropdown-item:hover {
-      background: rgb(210, 210, 210);
+      background: rgb(255, 255, 255);
       color: rgb(0, 0, 0);
     }
 
@@ -518,6 +519,17 @@
       background: rgb(0, 120, 212);
       color: rgb(255, 255, 255);
       font-weight: 600;
+    }
+
+    /* Default "All X" option — no blue highlight */
+    .ms-Dropdown-item.selected.is-default {
+      background: rgb(234, 234, 234);
+      color: rgb(21, 21, 21);
+      font-weight: 400;
+    }
+
+    .ms-Dropdown-item.selected.is-default:hover {
+      background: rgb(255, 255, 255);
     }
 
     /* Search box — exact from DevTools */
@@ -1207,19 +1219,23 @@
       /* Build option items */
       options.forEach((opt, idx) => {
         const item = document.createElement('div');
-        item.className = 'ms-Dropdown-item' + (idx === 0 ? ' selected' : '');
+        const isDefault = idx === 0;
+        // Default "All X" items get selected but not highlighted blue
+        item.className = 'ms-Dropdown-item' + (isDefault ? ' selected is-default' : '');
         item.setAttribute('role', 'option');
-        item.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        item.setAttribute('aria-selected', isDefault ? 'true' : 'false');
         item.textContent = opt;
 
         item.addEventListener('click', (e) => {
           e.stopPropagation();
           optionSpan.textContent = opt;
           listbox.querySelectorAll('.ms-Dropdown-item').forEach(el => {
-            el.classList.remove('selected');
+            el.classList.remove('selected', 'is-default');
             el.setAttribute('aria-selected', 'false');
           });
           item.classList.add('selected');
+          // Re-add is-default if clicking the "All X" option
+          if (isDefault) item.classList.add('is-default');
           item.setAttribute('aria-selected', 'true');
           closeAllDropdowns();
           onSelect(opt);
